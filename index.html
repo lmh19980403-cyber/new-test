@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>阿里云 SMB 解决方案二面展示 | 候选人作品集</title>
+    <meta
+      name="description"
+      content="面向阿里云 SMB 事业部解决方案二面的个人展示网站，集中呈现 Agent 作品、解决方案销售项目、阿里云场景学习、ACP 知识框架与 AI 工程理解。"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand" href="#top" aria-label="返回顶部">
+          <span class="brand-mark">AI</span>
+          <span>
+            <strong>候选人展示站</strong>
+            <small>Aliyun SMB Solution Interview</small>
+          </span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu">
+          菜单
+        </button>
+        <div class="nav-links" id="nav-menu">
+          <a href="#agents">Agent 作品</a>
+          <a href="#enterprise">锐捷项目</a>
+          <a href="#aliyun">阿里云场景</a>
+          <a href="#knowledge">知识框架</a>
+          <a href="#deploy">部署</a>
+        </div>
+      </nav>
+
+      <section class="hero" aria-label="面试汇报网页头部">
+        <div class="hero-profile">
+          <label class="photo-placeholder" aria-label="点击上传个人照片">
+            <input id="profile-photo-input" type="file" accept="image/*" />
+            <img id="profile-photo-preview" alt="个人照片预览" />
+            <span class="photo-upload-text">点击上传照片</span>
+          </label>
+          <p class="eyebrow">Aliyun SMB Solution Interview</p>
+          <h1>从锐捷到阿里云：我的解决方案进阶与AI实战笔记</h1>
+          <p class="hero-subtitle">懂销售闭环 · 有AI实战 · 具技术深度</p>
+          <div class="hero-tags" aria-label="核心经历标签">
+            <span>锐捷网络 | 百万级大单与解决方案全流程</span>
+            <span>孵化器探索 | 场景洞察与AI Agent落地</span>
+            <span>阿里云准备 | 4大核心场景与底层架构理解</span>
+          </div>
+        </div>
+        <aside class="fit-card" aria-label="为什么我契合该岗位">
+          <p class="eyebrow">Why me</p>
+          <h2>为什么我契合该岗位？</h2>
+          <div class="advantage-list">
+            <article class="advantage-item">
+              <span>01</span>
+              <div>
+                <h3>笃定的职业锚点：云+AI赛道，解决方案型专家</h3>
+                <p>
+                  经过系统的行业研究，我笃定云+AI是未来最具潜力的机遇；经过两年的实战探索，
+                  我的职业主线已明确聚焦于“为客户创造核心价值”的解决方案领域。
+                </p>
+              </div>
+            </article>
+            <article class="advantage-item">
+              <span>02</span>
+              <div>
+                <h3>商业闭环与解决方案实战经验</h3>
+                <p>
+                  拥有从0到1的创业实战与百万级项目的全流程操盘经验。擅长在复杂业务中精准挖掘痛点，
+                  主导从需求分析、方案设计到POC验证的完整解决方案闭环，能高效承接并转化客户的真实诉求。
+                </p>
+              </div>
+            </article>
+            <article class="advantage-item">
+              <span>03</span>
+              <div>
+                <h3>极强的学习内驱力与技术落地意愿</h3>
+                <p>
+                  985本硕背景，具备出色的知识迁移能力。善于用AI重塑学习工作流，
+                  独立手搓Agent解决真实痛点，并已体系化掌握阿里云核心技术栈与场景解决方案。
+                </p>
+              </div>
+            </article>
+          </div>
+        </aside>
+      </section>
+    </header>
+
+    <main>
+      <section class="section" id="storyline">
+        <div class="section-heading">
+          <p class="eyebrow">Step 1 · 内容梳理与网页设计</p>
+          <h2>面试展示建议采用“价值主张 - 证据 - 场景迁移”的页面结构</h2>
+          <p>
+            面试官的核心问题不是“做过什么”，而是“能否把过往经验迁移到阿里云 SMB 客户场景”。
+            因此页面把每个板块都设计成：问题、动作、结果、可迁移能力。
+          </p>
+        </div>
+        <div class="story-grid">
+          <article class="story-card">
+            <span class="step">01</span>
+            <h3>我能识别客户机会</h3>
+            <p>用锐捷项目说明客户画像、痛点挖掘、关键人地图、竞争分析和成交路径。</p>
+          </article>
+          <article class="story-card">
+            <span class="step">02</span>
+            <h3>我能构建 AI 方案</h3>
+            <p>用三个 Agent 展示从业务流程抽象、提示词设计、资料组织到输出物交付。</p>
+          </article>
+          <article class="story-card">
+            <span class="step">03</span>
+            <h3>我能对齐阿里云产品</h3>
+            <p>用 RAG、Tair 缓存、LoRA 微调、万小智描述 SMB 企业落地路径。</p>
+          </article>
+          <article class="story-card">
+            <span class="step">04</span>
+            <h3>我能持续学习并结构化表达</h3>
+            <p>用 ACP 考纲框架和 AI 工程理解证明技术学习能力与方案表达能力。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="agents">
+        <div class="section-heading">
+          <p class="eyebrow">板块一 · 三个 Agent 作品</p>
+          <h2>把 AI 能力转化为 SMB 客户能理解的效率提升场景</h2>
+          <p>
+            三个 Agent 分别对应政策资金、内容营销、项目研究，适合中小企业在低 IT 投入下快速验证 AI 价值。
+          </p>
+        </div>
+        <div class="tab-shell" data-tabs>
+          <div class="tab-list" role="tablist" aria-label="Agent 作品切换">
+            <button class="tab-button active" type="button" role="tab" aria-selected="true" data-tab="policy">
+              政策申报建议书 Agent
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="tweet">
+              科技成果推文 Agent
+            </button>
+            <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="research">
+              项目研究 Agent
+            </button>
+          </div>
+          <div class="tab-panel active" role="tabpanel" data-panel="policy">
+            <h3>政策申报建议书 Agent</h3>
+            <p>
+              面向科技型中小企业，输入企业基本信息、技术方向、资质材料和政策文本，输出申报匹配建议、
+              申报材料大纲、优势补强建议和风险提醒。
+            </p>
+            <ul>
+              <li><strong>客户价值：</strong>降低政策筛选和材料初稿成本，帮助企业更快判断申报优先级。</li>
+              <li><strong>能力体现：</strong>政策文本理解、信息抽取、模板化输出、风险项归纳。</li>
+              <li><strong>阿里云迁移：</strong>可用通义千问 + 向量检索 + OSS 文档库形成企业政策知识库。</li>
+            </ul>
+          </div>
+          <div class="tab-panel" role="tabpanel" data-panel="tweet">
+            <h3>科技成果领域推文写作 Agent</h3>
+            <p>
+              面向科研机构、技术服务公司或园区运营方，输入科技成果简介、目标受众和传播渠道，生成公众号、
+              视频脚本或销售跟进素材。
+            </p>
+            <ul>
+              <li><strong>客户价值：</strong>把偏技术的成果材料转化为可传播、可获客的营销内容。</li>
+              <li><strong>能力体现：</strong>受众分层、内容结构化、卖点提炼、语气风格控制。</li>
+              <li><strong>阿里云迁移：</strong>可结合百炼应用、内容审核和企业素材库形成营销内容助手。</li>
+            </ul>
+          </div>
+          <div class="tab-panel" role="tabpanel" data-panel="research">
+            <h3>项目研究 Agent</h3>
+            <p>
+              面向售前调研、行业研究或项目立项，围绕一个项目主题输出背景、政策、竞品、商业模式、
+              技术路线和行动建议。
+            </p>
+            <ul>
+              <li><strong>客户价值：</strong>缩短项目早期调研周期，为销售拜访和方案设计提供资料底座。</li>
+              <li><strong>能力体现：</strong>研究框架设计、多来源信息组织、结论归纳和下一步建议。</li>
+              <li><strong>阿里云迁移：</strong>可沉淀为 SMB 客户行业洞察库，辅助商机识别和方案推荐。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="enterprise">
+        <div class="section-heading">
+          <p class="eyebrow">板块二 · 锐捷网络项目经验</p>
+          <h2>突出一个完整体现解决方案型销售打单流程的项目</h2>
+          <p>
+            页面建议展示两个项目，但重点展开最能体现完整销售闭环的项目。以下内容保留可替换字段，
+            方便补充真实客户行业、金额、周期和结果数据。
+          </p>
+        </div>
+        <div class="deal-layout">
+          <article class="deal-card featured">
+            <span class="badge">重点项目</span>
+            <h3>项目 A：完整解决方案销售打单流程</h3>
+            <p>
+              建议选择一个从线索发现、需求诊断、方案设计、POC/测试、商务推进到交付复盘都参与过的项目。
+            </p>
+            <div class="timeline">
+              <div>
+                <strong>1. 线索与客户画像</strong>
+                <span>识别客户业务场景、预算来源、关键部门和决策链。</span>
+              </div>
+              <div>
+                <strong>2. 需求诊断</strong>
+                <span>把“买设备/系统”的表层需求转化为网络可靠性、运维效率、成本控制等业务目标。</span>
+              </div>
+              <div>
+                <strong>3. 方案设计</strong>
+                <span>协同售前形成产品组合、架构图、分阶段建设路径和价值测算。</span>
+              </div>
+              <div>
+                <strong>4. 竞争与异议处理</strong>
+                <span>围绕价格、性能、交付、服务、品牌风险进行差异化回应。</span>
+              </div>
+              <div>
+                <strong>5. 成交与复盘</strong>
+                <span>沉淀客户画像、行业话术、可复用材料和后续增购机会。</span>
+              </div>
+            </div>
+          </article>
+          <article class="deal-card">
+            <span class="badge light">补充项目</span>
+            <h3>项目 B：突出行业理解或协同能力</h3>
+            <p>
+              用第二个项目补充不同客户类型、行业场景或团队协作方式，避免页面只呈现单一案例。
+            </p>
+            <ul class="compact-list">
+              <li>客户行业：可替换为教育、政企、制造、园区等</li>
+              <li>核心挑战：预算、竞品、技术验证或多方协同</li>
+              <li>迁移价值：可映射到阿里云 SMB 客户拓展</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section accent-section" id="aliyun">
+        <div class="section-heading">
+          <p class="eyebrow">板块三 · 阿里云四个场景学习</p>
+          <h2>把产品学习转化为 SMB 客户可落地的方案包</h2>
+        </div>
+        <div class="scenario-grid">
+          <article class="scenario-card">
+            <h3>RAG 知识库</h3>
+            <p>适用于企业制度、产品手册、售后 FAQ、政策资料等知识问答。</p>
+            <span>关键表达：文档解析、向量化、召回、重排、答案溯源。</span>
+          </article>
+          <article class="scenario-card">
+            <h3>RAG 知识库 + Tair 缓存</h3>
+            <p>适用于高频问答、客服助手、内部知识助手，提升响应速度并降低成本。</p>
+            <span>关键表达：热点问题缓存、语义缓存、降本增效、体验稳定性。</span>
+          </article>
+          <article class="scenario-card">
+            <h3>LoRA 微调</h3>
+            <p>适用于企业私有话术、行业术语、固定格式报告和特定风格内容生成。</p>
+            <span>关键表达：小样本、低成本、参数高效微调、评测集设计。</span>
+          </article>
+          <article class="scenario-card">
+            <h3>万小智</h3>
+            <p>适用于企业快速搭建智能客服、营销问答、业务咨询等智能体入口。</p>
+            <span>关键表达：低门槛配置、业务知识接入、多渠道服务、运营闭环。</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="knowledge">
+        <div class="section-heading">
+          <p class="eyebrow">板块四 & 五 · 知识框架与 AI 工程理解</p>
+          <h2>用框架化表达证明学习速度、技术理解和售前沟通能力</h2>
+        </div>
+        <div class="knowledge-layout">
+          <article class="framework-card">
+            <h3>阿里云云计算 ACP 框架</h3>
+            <ul>
+              <li>ECS、镜像、块存储、快照、安全组、弹性伸缩</li>
+              <li>VPC、交换机、NAT、SLB、CDN、DNS</li>
+              <li>OSS、RDS、Redis/Tair、备份与容灾</li>
+              <li>云安全、监控、成本优化、迁移上云路径</li>
+            </ul>
+          </article>
+          <article class="framework-card">
+            <h3>阿里云大模型 ACP 框架</h3>
+            <ul>
+              <li>通义千问、百炼平台、提示词工程、智能体编排</li>
+              <li>RAG 知识库、向量检索、数据清洗、答案评估</li>
+              <li>模型微调、推理服务、应用集成、权限与合规</li>
+              <li>典型场景：客服、营销、办公、研发、行业助手</li>
+            </ul>
+          </article>
+          <article class="framework-card wide">
+            <h3>Transformer、TensorFlow、PyTorch 理解</h3>
+            <div class="two-col">
+              <p>
+                <strong>Transformer：</strong>重点讲清注意力机制、位置编码、编码器/解码器结构、
+                上下文窗口与大模型生成能力的关系。
+              </p>
+              <p>
+                <strong>TensorFlow/PyTorch：</strong>重点讲清深度学习框架在张量计算、自动求导、
+                模型训练、部署推理中的作用，以及 PyTorch 更常用于研究迭代、TensorFlow 常见于工程部署的差异。
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section dark-section" id="interaction">
+        <div class="section-heading">
+          <p class="eyebrow">Step 2 · 网站交互</p>
+          <h2>面试现场建议按 8-12 分钟浏览路径演示</h2>
+        </div>
+        <div class="interaction-board">
+          <button class="path-card active" type="button" data-path="sales">
+            <strong>路径 A：解决方案销售能力</strong>
+            <span>锐捷项目 -> 阿里云 SMB 迁移 -> 成交方法论</span>
+          </button>
+          <button class="path-card" type="button" data-path="ai">
+            <strong>路径 B：AI 场景落地能力</strong>
+            <span>三个 Agent -> RAG/Tair/LoRA/万小智 -> 客户方案</span>
+          </button>
+          <button class="path-card" type="button" data-path="learning">
+            <strong>路径 C：学习与表达能力</strong>
+            <span>ACP 框架 -> Transformer/框架理解 -> 面试问答</span>
+          </button>
+        </div>
+        <div class="path-detail" aria-live="polite">
+          <h3>路径 A：解决方案销售能力</h3>
+          <p>
+            先展示锐捷重点项目的完整打单流程，再把方法论迁移到阿里云 SMB 客户：识别行业痛点、
+            组合云产品和大模型能力、设计试点方案、用 ROI 推动成交。
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="deploy">
+        <div class="section-heading">
+          <p class="eyebrow">部署方案</p>
+          <h2>当前版本是纯静态站点，部署门槛低，适合快速对外访问</h2>
+          <p>
+            推荐优先使用阿里云 OSS 静态网站托管；如果想最快上线，也可以使用 Vercel、Netlify、
+            GitHub Pages 或任意 Nginx 静态服务。
+          </p>
+        </div>
+        <div class="deploy-grid">
+          <article class="deploy-card">
+            <h3>阿里云 OSS 静态网站</h3>
+            <ol>
+              <li>创建 OSS Bucket，读写权限选择私有，之后配置公共读或 CDN 回源。</li>
+              <li>开启静态网站托管，默认首页设置为 <code>index.html</code>。</li>
+              <li>上传 <code>index.html</code>、<code>styles.css</code>、<code>script.js</code>。</li>
+              <li>绑定自定义域名并配置 HTTPS 证书。</li>
+            </ol>
+          </article>
+          <article class="deploy-card">
+            <h3>低成本快速部署</h3>
+            <ol>
+              <li>Vercel/Netlify：导入 GitHub 仓库，构建命令留空，发布目录选择根目录。</li>
+              <li>GitHub Pages：选择当前分支根目录发布。</li>
+              <li>ECS/Nginx：把三个静态文件放入站点根目录即可。</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>建议后续补充：真实项目指标、Agent 截图或演示视频、阿里云产品架构图、个人联系方式。</p>
+      <a href="#top">回到顶部</a>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
