@@ -3,6 +3,10 @@ const navToggle = document.querySelector(".nav-toggle");
 const tabShell = document.querySelector("[data-tabs]");
 const pathCards = document.querySelectorAll("[data-path]");
 const pathDetail = document.querySelector(".path-detail");
+const photoInput = document.querySelector("#profile-photo-input");
+const photoPreview = document.querySelector("#profile-photo-preview");
+const photoPlaceholder = document.querySelector(".photo-placeholder");
+const storedPhotoKey = "candidateProfilePhoto";
 
 const pathCopy = {
   sales: {
@@ -47,6 +51,28 @@ if (tabShell) {
         panel.classList.toggle("active", panel.dataset.panel === target);
       });
     });
+  });
+}
+
+if (photoInput && photoPreview && photoPlaceholder) {
+  const savedPhoto = localStorage.getItem(storedPhotoKey);
+  if (savedPhoto) {
+    photoPreview.src = savedPhoto;
+    photoPlaceholder.classList.add("has-photo");
+  }
+
+  photoInput.addEventListener("change", () => {
+    const file = photoInput.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+      const imageData = String(reader.result);
+      photoPreview.src = imageData;
+      photoPlaceholder.classList.add("has-photo");
+      localStorage.setItem(storedPhotoKey, imageData);
+    });
+    reader.readAsDataURL(file);
   });
 }
 
