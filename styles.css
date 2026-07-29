@@ -576,6 +576,155 @@ code {
   font-weight: 800;
 }
 
+.case-stack {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.case-card {
+  border: 1px solid var(--line);
+  border-radius: calc(var(--radius) + 6px);
+  background: var(--card);
+  box-shadow: 0 18px 42px rgba(15, 31, 56, 0.08);
+  padding: 1.4rem;
+}
+
+.primary-case {
+  border-color: rgba(255, 106, 0, 0.34);
+  background:
+    linear-gradient(135deg, rgba(255, 106, 0, 0.08), transparent 35%),
+    #fff;
+}
+
+.case-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.case-hero h3 {
+  margin: 0.8rem 0 0.6rem;
+  font-size: clamp(1.45rem, 2.4vw, 2.35rem);
+  line-height: 1.18;
+}
+
+.case-hero p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.case-result {
+  display: grid;
+  align-content: center;
+  gap: 0.5rem;
+  border-radius: 22px;
+  background: #07111f;
+  color: #fff;
+  padding: 1.1rem;
+}
+
+.case-result strong {
+  color: var(--primary);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+}
+
+.case-result span {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+
+.stakeholder-map {
+  display: grid;
+  gap: 0.8rem;
+  border: 1px dashed rgba(23, 104, 232, 0.34);
+  border-radius: 22px;
+  background: #f8fbff;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.map-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.map-row.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.map-node {
+  border: 1px solid #dbe5f3;
+  border-radius: 16px;
+  background: #fff;
+  color: #324159;
+  font-weight: 800;
+  padding: 0.85rem;
+  text-align: center;
+}
+
+.map-node.main {
+  border-color: rgba(255, 106, 0, 0.32);
+  background: rgba(255, 106, 0, 0.1);
+  color: #993d00;
+}
+
+.map-node.source {
+  justify-self: center;
+  min-width: min(100%, 520px);
+}
+
+.flow-note {
+  border-radius: 14px;
+  background: rgba(23, 104, 232, 0.08);
+  color: #31445f;
+  font-weight: 800;
+  padding: 0.8rem 1rem;
+}
+
+.deal-flow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.deal-flow.compact {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.deal-flow div {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.deal-flow span {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), #ffb000);
+  color: #111827;
+  font-weight: 900;
+  margin-bottom: 0.7rem;
+}
+
+.deal-flow strong {
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.deal-flow p {
+  color: var(--muted);
+  margin: 0;
+}
+
 .deal-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
@@ -763,6 +912,7 @@ code {
   }
 
   .hero,
+  .case-hero,
   .deal-layout,
   .knowledge-layout,
   .two-col,
@@ -773,7 +923,11 @@ code {
 
   .story-grid,
   .scenario-grid,
-  .interaction-board {
+  .interaction-board,
+  .deal-flow,
+  .deal-flow.compact,
+  .map-row,
+  .map-row.three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -785,7 +939,11 @@ code {
 
   .story-grid,
   .scenario-grid,
-  .interaction-board {
+  .interaction-board,
+  .deal-flow,
+  .deal-flow.compact,
+  .map-row,
+  .map-row.three {
     grid-template-columns: 1fr;
   }
 
