@@ -27,6 +27,34 @@ registry.cn-hangzhou.aliyuncs.com/<namespace>/tech-evaluation-web-skill
 
 ## 二、构建并推送镜像
 
+### 方式 A：GitHub Actions 自动构建（适合没有 Docker 经验）
+
+仓库已提供 `.github/workflows/build-and-push-acr.yml`。你只需要在 GitHub 配置以下 Secrets：
+
+```text
+ALIYUN_REGISTRY=crpi-xxxx.cn-hangzhou.personal.cr.aliyuncs.com
+ALIYUN_NAMESPACE=tech-eval
+ALIYUN_REPOSITORY=tech-evaluation-web-skill
+ALIYUN_USERNAME=你的 ACR 登录用户名
+ALIYUN_PASSWORD=你的 ACR 登录密码
+```
+
+然后进入 GitHub 仓库：
+
+```text
+Actions > Build and push ACR image > Run workflow
+```
+
+`image_tag` 填：
+
+```text
+latest
+```
+
+运行成功后，ACR 的“镜像版本”页面会出现 `latest`。
+
+### 方式 B：本地 Docker 构建
+
 在本地或 CI 环境执行：
 
 ```bash
