@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>科技成果五维评估系统</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Tech Evaluation Skill</p>
+          <h1>科技成果五维评估系统</h1>
+          <p class="subtitle">
+            上传项目路演 PPTX 或粘贴文字资料，自动生成技术创新性、实用性、市场前景、经济效益、社会价值五维评估报告。
+          </p>
+        </div>
+        <div class="hero-card">
+          <strong>支持材料</strong>
+          <span>PPTX / TXT / Markdown / 纯文字</span>
+        </div>
+      </section>
+
+      <section class="panel">
+        <form id="evaluationForm">
+          <div class="grid">
+            <label>
+              项目名称（可选）
+              <input name="projectName" placeholder="例如：钙钛矿太阳能电池产业化项目" />
+            </label>
+            <label>
+              提交人/联系方式（可选）
+              <input name="contact" placeholder="例如：张三 / zhang@example.com" />
+            </label>
+          </div>
+
+          <label>
+            项目文字资料
+            <textarea
+              name="projectText"
+              rows="10"
+              placeholder="可粘贴项目 BP、路演稿、技术说明、市场与融资信息等。若上传 PPTX，此处可补充说明。"
+            ></textarea>
+          </label>
+
+          <label class="file-drop">
+            <input name="projectFile" type="file" accept=".pptx,.ppt,.txt,.md" />
+            <span>上传项目 PPTX/TXT/MD 文件</span>
+            <small>二进制 .ppt 请先另存为 .pptx；默认文件大小上限 20MB。</small>
+          </label>
+
+          <button id="submitButton" type="submit">生成评估报告</button>
+        </form>
+      </section>
+
+      <section id="status" class="status" hidden></section>
+
+      <section id="result" class="result" hidden>
+        <div class="result-header">
+          <div>
+            <p class="eyebrow">Evaluation Report</p>
+            <h2 id="projectTitle"></h2>
+          </div>
+          <div class="score-card">
+            <span id="overallScore">--</span>
+            <small id="grade">--</small>
+          </div>
+        </div>
+
+        <div id="summary" class="summary"></div>
+        <div id="dimensionGrid" class="dimension-grid"></div>
+
+        <div class="three-columns">
+          <article>
+            <h3>亮点</h3>
+            <ul id="highlights"></ul>
+          </article>
+          <article>
+            <h3>风险</h3>
+            <ul id="risks"></ul>
+          </article>
+          <article>
+            <h3>建议</h3>
+            <ul id="recommendations"></ul>
+          </article>
+        </div>
+
+        <details>
+          <summary>查看原始 JSON</summary>
+          <pre id="rawJson"></pre>
+        </details>
+      </section>
+    </main>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
