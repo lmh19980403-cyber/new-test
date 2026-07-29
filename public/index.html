@@ -10,19 +10,39 @@
     <main class="page">
       <section class="hero">
         <div>
-          <p class="eyebrow">Tech Evaluation Skill</p>
+          <div class="brand">
+            <span class="brand-mark">5D</span>
+            <p class="eyebrow">Tech Evaluation Skill</p>
+          </div>
           <h1>科技成果五维评估系统</h1>
           <p class="subtitle">
             上传项目路演 PPTX 或粘贴文字资料，自动生成技术创新性、实用性、市场前景、经济效益、社会价值五维评估报告。
           </p>
+          <div class="hero-actions">
+            <a href="#evaluationForm">开始评估</a>
+            <span>支持千问 / DashScope 结构化输出</span>
+          </div>
         </div>
         <div class="hero-card">
+          <div class="hero-card-icon">AI</div>
           <strong>支持材料</strong>
           <span>PPTX / TXT / Markdown / 纯文字</span>
+          <ol>
+            <li>上传材料</li>
+            <li>抽取关键信息</li>
+            <li>生成五维报告</li>
+          </ol>
         </div>
       </section>
 
       <section class="panel">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">Project Material</p>
+            <h2>提交项目资料</h2>
+          </div>
+          <span>文件不会落盘保存，仅用于本次解析</span>
+        </div>
         <form id="evaluationForm">
           <div class="grid">
             <label>
@@ -46,11 +66,14 @@
 
           <label class="file-drop">
             <input name="projectFile" type="file" accept=".pptx,.ppt,.txt,.md" />
-            <span>上传项目 PPTX/TXT/MD 文件</span>
-            <small>二进制 .ppt 请先另存为 .pptx；默认文件大小上限 20MB。</small>
+            <span class="file-title">上传项目 PPTX/TXT/MD 文件</span>
+            <small id="fileHint">二进制 .ppt 请先另存为 .pptx；默认文件大小上限 20MB。</small>
           </label>
 
-          <button id="submitButton" type="submit">生成评估报告</button>
+          <div class="form-footer">
+            <small>建议材料包含：技术亮点、TRL、专利、客户验证、市场空间、商业模式、融资计划。</small>
+            <button id="submitButton" type="submit">生成评估报告</button>
+          </div>
         </form>
       </section>
 

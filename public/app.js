@@ -2,6 +2,8 @@ const form = document.querySelector("#evaluationForm");
 const submitButton = document.querySelector("#submitButton");
 const statusBox = document.querySelector("#status");
 const resultBox = document.querySelector("#result");
+const fileInput = document.querySelector('input[name="projectFile"]');
+const fileHint = document.querySelector("#fileHint");
 
 const dimensionNames = {
   innovation: "技术创新性",
@@ -36,6 +38,13 @@ form.addEventListener("submit", async (event) => {
   } finally {
     submitButton.disabled = false;
   }
+});
+
+fileInput.addEventListener("change", () => {
+  const file = fileInput.files?.[0];
+  fileHint.textContent = file
+    ? `已选择：${file.name}（${formatFileSize(file.size)}）`
+    : "二进制 .ppt 请先另存为 .pptx；默认文件大小上限 20MB。";
 });
 
 function renderReport(report, input) {
@@ -106,4 +115,11 @@ function escapeHtml(value = "") {
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
+}
+
+function formatFileSize(bytes = 0) {
+  if (bytes < 1024 * 1024) {
+    return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  }
+  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }

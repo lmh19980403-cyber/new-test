@@ -112,6 +112,8 @@ curl -X POST http://localhost:3000/api/evaluations \
 
 ## 阿里云部署建议
 
+更完整的操作步骤见：[`docs/aliyun-deployment.md`](docs/aliyun-deployment.md)。
+
 ### 方案 A：SAE（推荐的轻量 Web 服务部署）
 
 1. 在阿里云容器镜像服务 ACR 创建镜像仓库。
