@@ -18,5 +18,5 @@ test("extractTextFromXml returns slide text from pptx XML", () => {
 });
 
 test("normalizeWhitespace trims noisy text", () => {
-  assert.equal(normalizeWhitespace(" 第一行  \r\n\r\n\r\n第二行\t\n"), " 第一行\n\n第二行");
+  assert.equal(normalizeWhitespace(" 第一行  \r\n\r\n\r\n第二行\t\n"), "第一行\n\n第二行");
 });
