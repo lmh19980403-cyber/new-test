@@ -132,7 +132,7 @@
           <p class="eyebrow">板块一 · 三个 Agent 作品</p>
           <h2>把 AI 能力转化为 SMB 客户能理解的效率提升场景</h2>
           <p>
-            三个 Agent 分别对应政策资金、内容营销、项目研究，适合中小企业在低 IT 投入下快速验证 AI 价值。
+            三个 Agent 分别对应政策申报、科技成果内容营销、AI 项目筛选，重点展示如何从客户痛点出发设计可落地的软件方案。
           </p>
         </div>
         <div class="tab-shell" data-tabs>
@@ -144,44 +144,92 @@
               科技成果推文 Agent
             </button>
             <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="research">
-              项目研究 Agent
+              AI 项目筛选 Agent
             </button>
           </div>
           <div class="tab-panel active" role="tabpanel" data-panel="policy">
             <h3>政策申报建议书 Agent</h3>
-            <p>
-              面向科技型中小企业，输入企业基本信息、技术方向、资质材料和政策文本，输出申报匹配建议、
-              申报材料大纲、优势补强建议和风险提醒。
+            <p class="agent-summary">
+              售前切入点：企业政策申报不是单纯“写材料”，本质是政策匹配、资质诊断、合规表达和经验沉淀的效率问题。
             </p>
-            <ul>
-              <li><strong>客户价值：</strong>降低政策筛选和材料初稿成本，帮助企业更快判断申报优先级。</li>
-              <li><strong>能力体现：</strong>政策文本理解、信息抽取、模板化输出、风险项归纳。</li>
-              <li><strong>阿里云迁移：</strong>可用通义千问 + 向量检索 + OSS 文档库形成企业政策知识库。</li>
-            </ul>
+            <div class="spin-grid">
+              <article>
+                <span>S · 背景</span>
+                <p>科技型企业、园区服务机构和孵化器经常需要批量处理政策申报材料，政策来源分散、口径变化快。</p>
+              </article>
+              <article>
+                <span>P · 痛点</span>
+                <p>政策建议书/申报书撰写耗时超过 1 天/份，人工效率低；老员工带新员工周期长，人员离职后经验需要反复重教。</p>
+              </article>
+              <article>
+                <span>I · 不解决的影响</span>
+                <p>客户会错过申报窗口，团队产能被低价值重复写作占用，政策理解和材料质量高度依赖个人经验。</p>
+              </article>
+              <article>
+                <span>N · 软件带来的价值</span>
+                <p>构建“常用政策卡片 + 全国政策大数据 API”智能匹配系统，秒级完成政策匹配、要点抽取与合规文本生成。</p>
+              </article>
+            </div>
+            <div class="metric-row">
+              <strong>落地成效</strong>
+              <span>方案生成时间由 1 天/份缩短至分钟级。</span>
+            </div>
           </div>
           <div class="tab-panel" role="tabpanel" data-panel="tweet">
             <h3>科技成果领域推文写作 Agent</h3>
-            <p>
-              面向科研机构、技术服务公司或园区运营方，输入科技成果简介、目标受众和传播渠道，生成公众号、
-              视频脚本或销售跟进素材。
+            <p class="agent-summary">
+              售前切入点：科技成果转化的内容团队缺的不是“会写字”，而是持续发现好选题、把技术语言转成市场语言的生产系统。
             </p>
-            <ul>
-              <li><strong>客户价值：</strong>把偏技术的成果材料转化为可传播、可获客的营销内容。</li>
-              <li><strong>能力体现：</strong>受众分层、内容结构化、卖点提炼、语气风格控制。</li>
-              <li><strong>阿里云迁移：</strong>可结合百炼应用、内容审核和企业素材库形成营销内容助手。</li>
-            </ul>
+            <div class="spin-grid">
+              <article>
+                <span>S · 背景</span>
+                <p>科研机构、技术服务公司和园区运营方需要持续输出高质量推文，用内容连接成果方、企业客户和投资资源。</p>
+              </article>
+              <article>
+                <span>P · 痛点</span>
+                <p>内容团队选题难、创作慢、推文写作低效，成员大量时间消耗在找方向、搭结构和改表达上。</p>
+              </article>
+              <article>
+                <span>I · 不解决的影响</span>
+                <p>优质成果无法被市场看懂，内容更新频率低，获客线索减少，团队精力被重复初稿写作拖住。</p>
+              </article>
+              <article>
+                <span>N · 软件带来的价值</span>
+                <p>构建“行业风向标监控 + 智能内容生产”智能体，自动完成选题洞察、卖点提炼、标题建议和推文初稿生成。</p>
+              </article>
+            </div>
+            <div class="metric-row">
+              <strong>落地成效</strong>
+              <span>3 人团队聚焦最终把控；优质选题效率提升 400%；高质量推文由每周 3 篇提升至每天 2-3 篇。</span>
+            </div>
           </div>
           <div class="tab-panel" role="tabpanel" data-panel="research">
-            <h3>项目研究 Agent</h3>
-            <p>
-              面向售前调研、行业研究或项目立项，围绕一个项目主题输出背景、政策、竞品、商业模式、
-              技术路线和行动建议。
+            <h3>AI 项目筛选 Agent</h3>
+            <p class="agent-summary">
+              售前切入点：孵化器和产业服务机构面对大量 BP 时，真正需要的是标准化评估、快速分层和可流转的项目判断依据。
             </p>
-            <ul>
-              <li><strong>客户价值：</strong>缩短项目早期调研周期，为销售拜访和方案设计提供资料底座。</li>
-              <li><strong>能力体现：</strong>研究框架设计、多来源信息组织、结论归纳和下一步建议。</li>
-              <li><strong>阿里云迁移：</strong>可沉淀为 SMB 客户行业洞察库，辅助商机识别和方案推荐。</li>
-            </ul>
+            <div class="spin-grid">
+              <article>
+                <span>S · 背景</span>
+                <p>孵化器、园区和产业服务机构常年接收大量 AI/科技项目 BP，需要判断项目技术含量、商业潜力、团队能力和入孵匹配度。</p>
+              </article>
+              <article>
+                <span>P · 痛点</span>
+                <p>人工筛选 BP 耗时长，评估标准不统一，项目经理需要反复阅读材料、补充调研、整理意见，流转效率低。</p>
+              </article>
+              <article>
+                <span>I · 不解决的影响</span>
+                <p>100 个项目容易形成月级筛选 backlog，高潜项目可能被延误，低质量项目占用专家时间，后续辅导也缺少结构化抓手。</p>
+              </article>
+              <article>
+                <span>N · 软件带来的价值</span>
+                <p>构建 AI 项目筛选智能体与 BP 优化工作流，自动抽取关键信息、生成评估摘要、风险提示、优先级建议和 BP 优化方向。</p>
+              </article>
+            </div>
+            <div class="metric-row">
+              <strong>落地成效</strong>
+              <span>单项目筛选时间节约 80%；100 个项目筛选周期从月级缩短到天级。</span>
+            </div>
           </div>
         </div>
       </section>

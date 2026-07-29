@@ -471,6 +471,70 @@ code {
   color: var(--muted);
 }
 
+.dark-section .tab-panel p,
+.dark-section .tab-panel li {
+  color: var(--muted);
+}
+
+.agent-summary {
+  border-left: 4px solid var(--primary);
+  border-radius: 12px;
+  background: #f8fafc;
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 1rem;
+}
+
+.spin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.spin-grid article {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fbfdff;
+  padding: 1rem;
+}
+
+.spin-grid span {
+  display: inline-flex;
+  border-radius: 999px;
+  background: rgba(255, 106, 0, 0.1);
+  color: var(--primary-dark);
+  font-size: 0.82rem;
+  font-weight: 900;
+  margin-bottom: 0.55rem;
+  padding: 0.2rem 0.6rem;
+}
+
+.spin-grid p {
+  margin: 0;
+}
+
+.metric-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 106, 0, 0.12), rgba(23, 104, 232, 0.1));
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+}
+
+.metric-row strong {
+  border-radius: 999px;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.25rem 0.7rem;
+}
+
+.metric-row span {
+  color: #25324a;
+  font-weight: 800;
+}
+
 .deal-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
@@ -661,7 +725,8 @@ code {
   .deal-layout,
   .knowledge-layout,
   .two-col,
-  .deploy-grid {
+  .deploy-grid,
+  .spin-grid {
     grid-template-columns: 1fr;
   }
 
@@ -685,6 +750,10 @@ code {
 
   .tab-list {
     display: grid;
+  }
+
+  .metric-row {
+    grid-template-columns: 1fr;
   }
 
   .footer {
