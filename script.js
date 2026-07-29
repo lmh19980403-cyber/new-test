@@ -55,24 +55,61 @@ if (tabShell) {
 }
 
 if (photoInput && photoPreview && photoPlaceholder) {
+  const uploadText = photoPlaceholder.querySelector(".photo-upload-text");
+  let activePreviewUrl = "";
+
+  const showPhoto = (src) => {
+    if (activePreviewUrl && activePreviewUrl !== src) URL.revokeObjectURL(activePreviewUrl);
+    photoPreview.src = src;
+    photoPlaceholder.classList.add("has-photo");
+    if (uploadText) uploadText.textContent = "更换照片";
+  };
+
+  const saveCompressedPhoto = (file) => {
+    const image = new Image();
+    const objectUrl = URL.createObjectURL(file);
+
+    image.addEventListener("load", () => {
+      const canvas = document.createElement("canvas");
+      const maxSize = 900;
+      const scale = Math.min(1, maxSize / Math.max(image.width, image.height));
+      canvas.width = Math.round(image.width * scale);
+      canvas.height = Math.round(image.height * scale);
+
+      const context = canvas.getContext("2d");
+      context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+      try {
+        const compressedPhoto = canvas.toDataURL("image/jpeg", 0.82);
+        localStorage.setItem(storedPhotoKey, compressedPhoto);
+      } catch (error) {
+        console.warn("Photo preview works, but browser storage failed.", error);
+      } finally {
+        URL.revokeObjectURL(objectUrl);
+      }
+    });
+
+    image.addEventListener("error", () => {
+      URL.revokeObjectURL(objectUrl);
+      if (uploadText) uploadText.textContent = "请选择 JPG/PNG";
+    });
+
+    image.src = objectUrl;
+  };
+
   const savedPhoto = localStorage.getItem(storedPhotoKey);
   if (savedPhoto) {
-    photoPreview.src = savedPhoto;
-    photoPlaceholder.classList.add("has-photo");
+    showPhoto(savedPhoto);
   }
 
   photoInput.addEventListener("change", () => {
     const file = photoInput.files?.[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.addEventListener("load", () => {
-      const imageData = String(reader.result);
-      photoPreview.src = imageData;
-      photoPlaceholder.classList.add("has-photo");
-      localStorage.setItem(storedPhotoKey, imageData);
-    });
-    reader.readAsDataURL(file);
+    const previewUrl = URL.createObjectURL(file);
+    showPhoto(previewUrl);
+    activePreviewUrl = previewUrl;
+    saveCompressedPhoto(file);
   });
 }
 
