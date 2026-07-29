@@ -476,6 +476,46 @@ code {
   color: var(--muted);
 }
 
+.agent-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.agent-title-row h3 {
+  margin: 0;
+}
+
+.agent-title-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text);
+  transition: color 0.2s ease;
+}
+
+.agent-title-link::after {
+  content: "↗";
+  color: var(--primary);
+  font-size: 0.95rem;
+}
+
+.agent-title-link:hover {
+  color: var(--primary-dark);
+}
+
+.agent-title-row > span {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  background: rgba(23, 104, 232, 0.1);
+  color: var(--blue);
+  font-size: 0.8rem;
+  font-weight: 900;
+  padding: 0.25rem 0.65rem;
+}
+
 .agent-summary {
   border-left: 4px solid var(--primary);
   border-radius: 12px;
@@ -509,6 +549,7 @@ code {
 }
 
 .spin-grid p {
+  color: var(--muted);
   margin: 0;
 }
 

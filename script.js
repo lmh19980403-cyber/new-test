@@ -3,6 +3,7 @@ const navToggle = document.querySelector(".nav-toggle");
 const tabShell = document.querySelector("[data-tabs]");
 const pathCards = document.querySelectorAll("[data-path]");
 const pathDetail = document.querySelector(".path-detail");
+const agentTitleLinks = document.querySelectorAll(".agent-title-link");
 const photoInput = document.querySelector("#profile-photo-input");
 const photoPreview = document.querySelector("#profile-photo-preview");
 const photoPlaceholder = document.querySelector(".photo-placeholder");
@@ -112,6 +113,16 @@ if (photoInput && photoPreview && photoPlaceholder) {
     saveCompressedPhoto(file);
   });
 }
+
+agentTitleLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const href = link.getAttribute("href");
+    if (!href || href === "#") {
+      event.preventDefault();
+      alert(`${link.dataset.agentName || "智能体"}链接待配置，提供真实链接后即可点击跳转。`);
+    }
+  });
+});
 
 pathCards.forEach((card) => {
   card.addEventListener("click", () => {
