@@ -1,0 +1,123 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "科技项目五维评估结果",
+  "type": "object",
+  "required": ["project_name", "dimensions", "overall_score", "grade", "highlights", "risks", "recommendations", "quadrant"],
+  "properties": {
+    "project_name": { "type": "string" },
+    "industry": { "type": "string" },
+    "weight_template": {
+      "type": "string",
+      "enum": ["硬科技", "生物医药", "AI/软件", "新能源材料", "绿色能源", "公共服务", "通用"]
+    },
+    "stage": {
+      "type": "string",
+      "enum": ["概念期", "成长期", "成熟期"]
+    },
+    "data_completeness": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "dimensions": {
+      "type": "object",
+      "required": ["innovation", "practicality", "market", "economic", "social"],
+      "properties": {
+        "innovation": { "$ref": "#/$defs/DimensionScore" },
+        "practicality": { "$ref": "#/$defs/DimensionScore" },
+        "market": { "$ref": "#/$defs/DimensionScore" },
+        "economic": { "$ref": "#/$defs/DimensionScore" },
+        "social": { "$ref": "#/$defs/DimensionScore" }
+      }
+    },
+    "overall_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "grade": {
+      "type": "string",
+      "enum": ["S", "A", "B", "C", "D"]
+    },
+    "grade_description": { "type": "string" },
+    "highlights": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string" }
+    },
+    "risks": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string" }
+    },
+    "recommendations": {
+      "type": "array",
+      "minItems": 3,
+      "items": { "type": "string" }
+    },
+    "quadrant": {
+      "type": "object",
+      "required": ["category", "tech_score", "market_score", "description"],
+      "properties": {
+        "category": {
+          "type": "string",
+          "enum": ["明星", "稳健", "风口", "深耕", "观望"]
+        },
+        "tech_score": { "type": "number" },
+        "market_score": { "type": "number" },
+        "description": { "type": "string" }
+      }
+    },
+    "scoring_notes": { "type": "string" }
+  },
+  "$defs": {
+    "DimensionScore": {
+      "type": "object",
+      "required": ["name", "score", "weight", "sub_scores", "confidence"],
+      "properties": {
+        "name": { "type": "string" },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "weighted_score": { "type": "number" },
+        "sub_scores": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["score", "reasoning"],
+            "properties": {
+              "score": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "reasoning": {
+                "type": "string",
+                "minLength": 20
+              }
+            }
+          }
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["高", "中", "低"]
+        },
+        "evidence": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "flags": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "description": "科技成果五维评估权重预设模板，根据项目行业自动匹配。",
+  "templates": {
+    "hard_tech": {
+      "name": "硬科技",
+      "description": "适用于半导体、新材料、高端装备、精密仪器等硬科技领域。",
+      "weights": {
+        "innovation": 0.3,
+        "practicality": 0.15,
+        "market": 0.2,
+        "economic": 0.2,
+        "social": 0.15
+      }
+    },
+    "biomedical": {
+      "name": "生物医药",
+      "description": "适用于新药研发、医疗器械、诊断试剂等。",
+      "weights": {
+        "innovation": 0.25,
+        "practicality": 0.15,
+        "market": 0.25,
+        "economic": 0.2,
+        "social": 0.15
+      }
+    },
+    "software_ai": {
+      "name": "AI/软件",
+      "description": "适用于 SaaS、AI 模型、平台软件、行业解决方案。",
+      "weights": {
+        "innovation": 0.2,
+        "practicality": 0.25,
+        "market": 0.25,
+        "economic": 0.15,
+        "social": 0.15
+      }
+    },
+    "new_energy_materials": {
+      "name": "新能源材料",
+      "description": "适用于新能源、新材料、储能等领域。",
+      "weights": {
+        "innovation": 0.3,
+        "practicality": 0.2,
+        "market": 0.25,
+        "economic": 0.15,
+        "social": 0.1
+      }
+    },
+    "green_energy": {
+      "name": "绿色能源",
+      "description": "适用于新能源、储能、节能减排、碳管理。",
+      "weights": {
+        "innovation": 0.2,
+        "practicality": 0.15,
+        "market": 0.2,
+        "economic": 0.15,
+        "social": 0.3
+      }
+    },
+    "public_service": {
+      "name": "公共服务",
+      "description": "适用于教育科技、智慧城市、公共安全、医疗信息化。",
+      "weights": {
+        "innovation": 0.15,
+        "practicality": 0.2,
+        "market": 0.15,
+        "economic": 0.15,
+        "social": 0.35
+      }
+    },
+    "general": {
+      "name": "通用",
+      "description": "默认均衡权重，适用于无法归入以上分类的技术成果。",
+      "weights": {
+        "innovation": 0.25,
+        "practicality": 0.2,
+        "market": 0.25,
+        "economic": 0.15,
+        "social": 0.15
+      }
+    }
+  },
+  "stage_adjustments": {
+    "concept": {
+      "description": "概念期(TRL1-4)，技术风险高但想象空间大。",
+      "adjustments": {
+        "innovation": 0.1,
+        "market": 0.05,
+        "practicality": -0.05,
+        "economic": -0.1
+      }
+    },
+    "growth": {
+      "description": "成长期(TRL5-7)，验证中，实用性权重上升。",
+      "adjustments": {
+        "practicality": 0.05,
+        "market": 0.05,
+        "economic": -0.05
+      }
+    },
+    "mature": {
+      "description": "成熟期(TRL8-9)，关注经济效益和规模化。",
+      "adjustments": {
+        "economic": 0.1,
+        "practicality": 0.05,
+        "social": -0.05
+      }
+    }
+  }
+}

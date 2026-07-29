@@ -1,0 +1,23 @@
+{
+  "name": "tech-evaluation-web-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "科技成果五维评估 Web skill，支持文本/PPT 上传并生成结构化评估报告。",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "check": "node --check src/server.js && node --check src/evaluationService.js && node --check src/fileExtractors.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "latest",
+    "express": "latest",
+    "jszip": "latest",
+    "multer": "latest",
+    "openai": "latest"
+  }
+}
