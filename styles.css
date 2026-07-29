@@ -604,7 +604,7 @@ code {
 }
 
 .case-hero h3 {
-  margin: 0.8rem 0 0.6rem;
+  margin: 0 0 0.6rem;
   font-size: clamp(1.45rem, 2.4vw, 2.35rem);
   line-height: 1.18;
 }
@@ -682,6 +682,83 @@ code {
   color: #31445f;
   font-weight: 800;
   padding: 0.8rem 1rem;
+}
+
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.flow-grid article,
+.role-grid article,
+.role-list article,
+.campus-grid article {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  padding: 1rem;
+}
+
+.flow-grid article {
+  background: #f8fbff;
+}
+
+.flow-grid strong,
+.role-grid strong,
+.role-list strong,
+.campus-grid strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 0.35rem;
+}
+
+.flow-grid strong {
+  color: var(--primary-dark);
+}
+
+.flow-grid span,
+.role-grid span,
+.role-list span,
+.campus-grid span {
+  color: var(--muted);
+}
+
+.role-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+  margin-top: 0.85rem;
+}
+
+.case-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 0.85rem;
+  margin-top: 1rem;
+}
+
+.case-subpanel {
+  border: 1px solid rgba(23, 104, 232, 0.16);
+  border-radius: 22px;
+  background: #f8fbff;
+  padding: 1rem;
+}
+
+.case-subpanel h4 {
+  margin: 0 0 0.8rem;
+  font-size: 1.05rem;
+}
+
+.role-list,
+.campus-grid {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.campus-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .deal-flow {
@@ -913,6 +990,7 @@ code {
 
   .hero,
   .case-hero,
+  .case-layout,
   .deal-layout,
   .knowledge-layout,
   .two-col,
@@ -926,6 +1004,9 @@ code {
   .interaction-board,
   .deal-flow,
   .deal-flow.compact,
+  .flow-grid,
+  .role-grid,
+  .campus-grid,
   .map-row,
   .map-row.three {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -942,6 +1023,9 @@ code {
   .interaction-board,
   .deal-flow,
   .deal-flow.compact,
+  .flow-grid,
+  .role-grid,
+  .campus-grid,
   .map-row,
   .map-row.three {
     grid-template-columns: 1fr;
