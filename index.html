@@ -34,7 +34,6 @@
           <a href="#enterprise">锐捷项目</a>
           <a href="#aliyun">阿里云场景</a>
           <a href="#knowledge">知识框架</a>
-          <a href="#deploy">部署</a>
         </div>
       </nav>
 
@@ -418,9 +417,9 @@
               面向金融投研场景，解决研报、财报、公告等海量非结构化数据难检索、响应慢、运维重的问题。
             </p>
             <ul>
-              <li><strong>阿里云方案：</strong>Milvus 全托管向量检索，承接文档切块、Embedding、语义检索和条件过滤。</li>
-              <li><strong>价值结果：</strong>查询从 600ms 提升至 50ms，运维工作量下降 80%，生产高峰 0 故障。</li>
-              <li><strong>技术关键词：</strong>向量数据库、ANN 检索、混合检索、多模态召回、RAG 答案质量。</li>
+              <li><strong>阿里云方案：</strong>Milvus 全托管向量检索，承接十亿级向量、文档切块、Embedding、语义检索和条件过滤。</li>
+              <li><strong>价值结果：</strong>查询从 600ms 提升至 50ms，运维工作量下降 80%，百余次访问峰值 0 故障。</li>
+              <li><strong>技术关键词：</strong>ANN 检索、混合检索、多模态召回、100+ 监控指标、RAG 答案质量。</li>
             </ul>
           </article>
           <article class="scenario-card detailed">
@@ -432,7 +431,7 @@
             <ul>
               <li><strong>阿里云方案：</strong>TairVector 前置语义缓存，识别“怎么退款”和“如何申请退货”等语义等价问题。</li>
               <li><strong>价值结果：</strong>月 Token 费用从 85 万降至 41 万，响应延迟从 2.5 秒降至 0.3 秒。</li>
-              <li><strong>技术关键词：</strong>语义缓存、相似度阈值、TTL、Redis 协议兼容、LangChain 接入。</li>
+              <li><strong>技术关键词：</strong>语义缓存、52% 重复请求拦截、相似度阈值、TTL、Redis 协议兼容、3 行代码接入。</li>
             </ul>
           </article>
           <article class="scenario-card detailed">
@@ -442,9 +441,9 @@
               面向客服意图识别、文案生成等高频业务，解决大模型效果好但推理成本高、延迟大、难以规模化的问题。
             </p>
             <ul>
-              <li><strong>阿里云方案：</strong>通过 PAI 进行模型微调与蒸馏，把大模型能力迁移到更轻量的业务模型。</li>
-              <li><strong>价值结果：</strong>72B 模型压缩至 3B，模型规模约为原来的 4%，推理速度提升 90%。</li>
-              <li><strong>技术关键词：</strong>SFT、DPO、PAI-Model Gallery、OSS 数据集、PAI-EAS 推理部署。</li>
+              <li><strong>阿里云方案：</strong>通过 PAI-EasyDistill 做模型微调与蒸馏，把大模型能力迁移到更轻量的业务模型。</li>
+              <li><strong>价值结果：</strong>72B 模型压缩至 3B，模型规模约为原来的 4%，推理速度提升 90%，效果保持稳定。</li>
+              <li><strong>技术关键词：</strong>SFT 监督微调、DPO 偏好优化、PAI-Model Gallery、OSS 数据集、PAI-EAS 推理部署。</li>
             </ul>
           </article>
           <article class="scenario-card detailed">
@@ -456,7 +455,7 @@
             <ul>
               <li><strong>阿里云方案：</strong>百炼智能体编排售前导购、售中交易、售后客服与判责流程。</li>
               <li><strong>价值结果：</strong>客服运营成本降低 30%+，租车 GMV 提升 5%，判责准确率达到 87%+。</li>
-              <li><strong>技术关键词：</strong>ReAct、工具调用、RAG、CoT 思维链、多模型路由、全链路可观测。</li>
+              <li><strong>技术关键词：</strong>ReAct、MCP/工具调用、RAG、CoT 思维链、多模型路由、全链路可观测。</li>
             </ul>
           </article>
         </div>
@@ -502,41 +501,7 @@
         </div>
       </section>
 
-      <section class="section" id="deploy">
-        <div class="section-heading">
-          <p class="eyebrow">部署方案</p>
-          <h2>当前版本是纯静态站点，部署门槛低，适合快速对外访问</h2>
-          <p>
-            推荐优先使用阿里云 OSS 静态网站托管；如果想最快上线，也可以使用 Vercel、Netlify、
-            GitHub Pages 或任意 Nginx 静态服务。
-          </p>
-        </div>
-        <div class="deploy-grid">
-          <article class="deploy-card">
-            <h3>阿里云 OSS 静态网站</h3>
-            <ol>
-              <li>创建 OSS Bucket，读写权限选择私有，之后配置公共读或 CDN 回源。</li>
-              <li>开启静态网站托管，默认首页设置为 <code>index.html</code>。</li>
-              <li>上传 <code>index.html</code>、<code>styles.css</code>、<code>script.js</code>。</li>
-              <li>绑定自定义域名并配置 HTTPS 证书。</li>
-            </ol>
-          </article>
-          <article class="deploy-card">
-            <h3>低成本快速部署</h3>
-            <ol>
-              <li>Vercel/Netlify：导入 GitHub 仓库，构建命令留空，发布目录选择根目录。</li>
-              <li>GitHub Pages：选择当前分支根目录发布。</li>
-              <li>ECS/Nginx：把三个静态文件放入站点根目录即可。</li>
-            </ol>
-          </article>
-        </div>
-      </section>
     </main>
-
-    <footer class="footer">
-      <p>建议后续补充：真实项目指标、Agent 截图或演示视频、阿里云产品架构图、个人联系方式。</p>
-      <a href="#top">回到顶部</a>
-    </footer>
 
     <script src="./script.js?v=20260729-spin2"></script>
   </body>
