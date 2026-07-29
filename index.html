@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=20260729-spin2" />
+    <link rel="stylesheet" href="./styles.css?v=20260729-aliyun3" />
   </head>
   <body>
     <header class="site-header" id="top">
@@ -410,26 +410,54 @@
           <p class="eyebrow">板块三 · 阿里云四个场景学习</p>
           <h2>技术赋能场地，为客户创造价值转化</h2>
         </div>
-        <div class="scenario-grid">
-          <article class="scenario-card">
-            <h3>RAG 知识库</h3>
-            <p>适用于企业制度、产品手册、售后 FAQ、政策资料等知识问答。</p>
-            <span>关键表达：文档解析、向量化、召回、重排、答案溯源。</span>
+        <div class="scenario-grid scenario-grid-detailed">
+          <article class="scenario-card detailed">
+            <span class="scenario-index">01 · 知识底座</span>
+            <h3>RAG 金融知识库：朝阳永续</h3>
+            <p>
+              面向金融投研场景，解决研报、财报、公告等海量非结构化数据难检索、响应慢、运维重的问题。
+            </p>
+            <ul>
+              <li><strong>阿里云方案：</strong>Milvus 全托管向量检索，承接文档切块、Embedding、语义检索和条件过滤。</li>
+              <li><strong>价值结果：</strong>查询从 600ms 提升至 50ms，运维工作量下降 80%，生产高峰 0 故障。</li>
+              <li><strong>技术关键词：</strong>向量数据库、ANN 检索、混合检索、多模态召回、RAG 答案质量。</li>
+            </ul>
           </article>
-          <article class="scenario-card">
-            <h3>RAG 知识库 + Tair 缓存</h3>
-            <p>适用于高频问答、客服助手、内部知识助手，提升响应速度并降低成本。</p>
-            <span>关键表达：热点问题缓存、语义缓存、降本增效、体验稳定性。</span>
+          <article class="scenario-card detailed">
+            <span class="scenario-index">02 · 性能优化</span>
+            <h3>RAG 知识库 + Tair 语义缓存</h3>
+            <p>
+              面向智能客服、FAQ 和企业知识库，解决大量语义重复问题反复触发 LLM 推理导致成本高、延迟高的问题。
+            </p>
+            <ul>
+              <li><strong>阿里云方案：</strong>TairVector 前置语义缓存，识别“怎么退款”和“如何申请退货”等语义等价问题。</li>
+              <li><strong>价值结果：</strong>月 Token 费用从 85 万降至 41 万，响应延迟从 2.5 秒降至 0.3 秒。</li>
+              <li><strong>技术关键词：</strong>语义缓存、相似度阈值、TTL、Redis 协议兼容、LangChain 接入。</li>
+            </ul>
           </article>
-          <article class="scenario-card">
-            <h3>LoRA 微调</h3>
-            <p>适用于企业私有话术、行业术语、固定格式报告和特定风格内容生成。</p>
-            <span>关键表达：小样本、低成本、参数高效微调、评测集设计。</span>
+          <article class="scenario-card detailed">
+            <span class="scenario-index">03 · 模型定制</span>
+            <h3>模型微调：PAI-EasyDistill</h3>
+            <p>
+              面向客服意图识别、文案生成等高频业务，解决大模型效果好但推理成本高、延迟大、难以规模化的问题。
+            </p>
+            <ul>
+              <li><strong>阿里云方案：</strong>通过 PAI 进行模型微调与蒸馏，把大模型能力迁移到更轻量的业务模型。</li>
+              <li><strong>价值结果：</strong>72B 模型压缩至 3B，模型规模约为原来的 4%，推理速度提升 90%。</li>
+              <li><strong>技术关键词：</strong>SFT、DPO、PAI-Model Gallery、OSS 数据集、PAI-EAS 推理部署。</li>
+            </ul>
           </article>
-          <article class="scenario-card">
-            <h3>万小智</h3>
-            <p>适用于企业快速搭建智能客服、营销问答、业务咨询等智能体入口。</p>
-            <span>关键表达：低门槛配置、业务知识接入、多渠道服务、运营闭环。</span>
+          <article class="scenario-card detailed">
+            <span class="scenario-index">04 · 应用落地</span>
+            <h3>智能体：百炼 Agent</h3>
+            <p>
+              面向出行、本地生活、客服和交易链路，解决模型“只能回答、不会行动”的问题，让 AI 进入业务流程。
+            </p>
+            <ul>
+              <li><strong>阿里云方案：</strong>百炼智能体编排售前导购、售中交易、售后客服与判责流程。</li>
+              <li><strong>价值结果：</strong>客服运营成本降低 30%+，租车 GMV 提升 5%，判责准确率达到 87%+。</li>
+              <li><strong>技术关键词：</strong>ReAct、工具调用、RAG、CoT 思维链、多模型路由、全链路可观测。</li>
+            </ul>
           </article>
         </div>
       </section>
