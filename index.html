@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>种智本部公众号推文生成器</title>
+    <meta
+      name="description"
+      content="基于种智孵化器本部公众号写作 Skill 的纯文字推文生成网页。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="hero__content">
+        <p class="eyebrow">Zhongzhi WeChat Writer</p>
+        <h1>种智本部公众号推文生成器</h1>
+        <p class="hero__lead">
+          把活动记录、采访纪要、项目资料、政策材料等大段素材粘贴进来，页面会按“种智本部公众号纯文字写作
+          Skill”拼装专业提示词，并可直接调用 OpenAI 兼容接口生成 Markdown 推文。
+        </p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="#generator">开始生成</a>
+          <a class="button button--ghost" href="#skill-summary">查看 Skill 解读</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="skill-summary" class="section section--narrow">
+        <div class="section__heading">
+          <p class="eyebrow">Skill 解读</p>
+          <h2>这个 Skill 不是普通写稿模板，而是一套机构号生产流程</h2>
+        </div>
+        <div class="summary-grid">
+          <article class="card">
+            <h3>核心任务</h3>
+            <p>
+              为成都种智孵化器管理有限公司本部生成可交给排版工具使用的纯 Markdown
+              公众号稿，不负责微信样式排版。
+            </p>
+          </article>
+          <article class="card">
+            <h3>内容主线</h3>
+            <p>
+              所有文章都围绕“技术发掘 → 产业匹配 → 概念验证 → 中试熟化 → 孵化创投 →
+              产业化”，突出落地应用与投资孵化。
+            </p>
+          </article>
+          <article class="card">
+            <h3>写作口吻</h3>
+            <p>
+              机构品牌号口吻，专业、克制、有判断。像商业报道和成果转化干货之间的中间路线，避免公文腔和震惊体。
+            </p>
+          </article>
+          <article class="card">
+            <h3>安全边界</h3>
+            <p>
+              未提供的人名、金额、合作关系、金句、联系方式必须标为“【待填】”，避免编造事实、广告法极限词和金融承诺。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="generator" class="section">
+        <div class="section__heading">
+          <p class="eyebrow">Generator</p>
+          <h2>输入素材，生成推文</h2>
+          <p>
+            不配置 API 时，可复制“完整提示词”到你常用的大模型；配置 API 后可在浏览器里直接生成。API
+            Key 只保存在当前浏览器 localStorage 中。
+          </p>
+        </div>
+
+        <div class="workspace">
+          <form id="article-form" class="panel form-panel">
+            <div class="panel__header">
+              <h3>1. 写作参数</h3>
+              <button type="button" class="text-button" id="load-example">填入示例</button>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                文章主题 / 任务
+                <input
+                  id="topic"
+                  name="topic"
+                  placeholder="如：把一场概念验证路演活动写成本部公众号文章"
+                  required
+                />
+              </label>
+
+              <label>
+                选题方向
+                <select id="direction" name="direction">
+                  <option value="转化案例复盘">① 转化案例复盘</option>
+                  <option value="投资界式项目/融资报道">② 投资界式项目/融资报道</option>
+                  <option value="方法论拆解">③ 方法论拆解</option>
+                  <option value="政策解读">④ 政策解读</option>
+                  <option value="赛道观察">⑤ 赛道观察</option>
+                  <option value="人物对话">⑥ 人物对话</option>
+                  <option value="踩坑实录">⑦ 踩坑实录</option>
+                  <option value="基地动态与读者问答">⑧ 基地动态与读者问答</option>
+                </select>
+              </label>
+
+              <label>
+                主打读者
+                <select id="audience" name="audience">
+                  <option value="高校/科研院所团队">高校/科研院所团队</option>
+                  <option value="企业技术需求方/产线方">企业技术需求方/产线方</option>
+                  <option value="投资人/FA/同行">投资人/FA/同行</option>
+                  <option value="政府/园区/协会">政府/园区/协会</option>
+                </select>
+              </label>
+
+              <label>
+                预计字数
+                <select id="length" name="length">
+                  <option value="800-1200字">800-1200字</option>
+                  <option value="1200-1800字">1200-1800字</option>
+                  <option value="1500-2200字" selected>1500-2200字</option>
+                  <option value="1800-2500字">1800-2500字</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              大段素材
+              <textarea
+                id="materials"
+                name="materials"
+                rows="12"
+                placeholder="粘贴活动纪要、采访记录、项目介绍、政策原文、数据、合作方信息等。素材越具体，生成越可靠。"
+                required
+              ></textarea>
+            </label>
+
+            <div class="form-grid">
+              <label>
+                已确认的关键数据
+                <textarea
+                  id="facts"
+                  name="facts"
+                  rows="5"
+                  placeholder="如：2024年获成都首批概念验证中心认定；年辅导科技成果转化项目200余项。"
+                ></textarea>
+              </label>
+
+              <label>
+                可引用原话 / 金句
+                <textarea
+                  id="quotes"
+                  name="quotes"
+                  rows="5"
+                  placeholder="必须是采访原话或公开发言。没有就留空，生成时会标【待填：金句】。"
+                ></textarea>
+              </label>
+            </div>
+
+            <label>
+              额外要求
+              <textarea
+                id="requirements"
+                name="requirements"
+                rows="4"
+                placeholder="如：不要出现某客户名称；重点突出企业找技术合作；结尾引导后台留言。"
+              ></textarea>
+            </label>
+
+            <div class="panel__header panel__header--sub">
+              <h3>2. 可选 API 配置</h3>
+              <button type="button" class="text-button" id="save-api">保存配置</button>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                API Endpoint
+                <input
+                  id="api-endpoint"
+                  name="apiEndpoint"
+                  placeholder="https://api.openai.com/v1/chat/completions"
+                />
+              </label>
+              <label>
+                Model
+                <input id="api-model" name="apiModel" placeholder="gpt-4.1 / deepseek-chat / ..." />
+              </label>
+              <label class="form-grid__wide">
+                API Key
+                <input id="api-key" name="apiKey" type="password" placeholder="sk-..." />
+              </label>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="button button--primary">生成提示词</button>
+              <button type="button" class="button button--secondary" id="generate-article">
+                直接生成推文
+              </button>
+            </div>
+          </form>
+
+          <aside class="panel">
+            <div class="panel__header">
+              <h3>生成状态</h3>
+              <span id="status" class="status">等待输入</span>
+            </div>
+            <div class="stats">
+              <div>
+                <strong id="material-count">0</strong>
+                <span>素材字数</span>
+              </div>
+              <div>
+                <strong id="prompt-count">0</strong>
+                <span>提示词字数</span>
+              </div>
+              <div>
+                <strong id="todo-count">0</strong>
+                <span>待填项</span>
+              </div>
+            </div>
+
+            <div class="rules-box">
+              <h4>内置检查</h4>
+              <ul id="checks">
+                <li>标题 5 选 1，主推标题≤30字</li>
+                <li>摘要 54 字内</li>
+                <li>开篇 150 字内有钩子</li>
+                <li>关键数字加粗，至少 1 个引用块</li>
+                <li>联系方式、金额、人物引言缺失时标【待填】</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <div class="output-grid">
+          <section class="panel">
+            <div class="panel__header">
+              <h3>完整提示词</h3>
+              <button type="button" class="text-button" data-copy="prompt-output">复制</button>
+            </div>
+            <textarea id="prompt-output" rows="18" readonly></textarea>
+          </section>
+
+          <section class="panel">
+            <div class="panel__header">
+              <h3>生成结果（Markdown）</h3>
+              <button type="button" class="text-button" data-copy="article-output">复制</button>
+            </div>
+            <textarea id="article-output" rows="18" readonly></textarea>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        纯文字稿生成工具。发布前请人工核对事实、授权、金融合规和所有
+        <code>【待填】</code> 项。
+      </p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
