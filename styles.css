@@ -597,10 +597,7 @@ code {
 }
 
 .case-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
-  gap: 1rem;
-  align-items: stretch;
+  max-width: 980px;
 }
 
 .case-hero h3 {
@@ -633,6 +630,12 @@ code {
 .case-result span {
   color: rgba(255, 255, 255, 0.78);
   font-weight: 700;
+}
+
+.case-result.wide {
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  margin-top: 1rem;
 }
 
 .stakeholder-map {
@@ -1036,6 +1039,10 @@ code {
   }
 
   .metric-row {
+    grid-template-columns: 1fr;
+  }
+
+  .case-result.wide {
     grid-template-columns: 1fr;
   }
 
