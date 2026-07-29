@@ -12,6 +12,8 @@
 DASHSCOPE_API_KEY=sk-xxxx
 MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 MODEL_NAME=qwen-max
+MODEL_ENABLE_SEARCH=false
+MODEL_RESPONSE_FORMAT=none
 PORT=3000
 ```
 
@@ -82,6 +84,8 @@ docker push registry.cn-hangzhou.aliyuncs.com/<namespace>/tech-evaluation-web-sk
    MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
    MODEL_NAME=qwen-max
    MODEL_TEMPERATURE=0.3
+   MODEL_ENABLE_SEARCH=false
+   MODEL_RESPONSE_FORMAT=none
    MAX_UPLOAD_BYTES=20971520
    ```
 
@@ -109,6 +113,8 @@ docker run -d \
   -e DASHSCOPE_API_KEY=sk-xxxx \
   -e MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1 \
   -e MODEL_NAME=qwen-max \
+  -e MODEL_ENABLE_SEARCH=false \
+  -e MODEL_RESPONSE_FORMAT=none \
   registry.cn-hangzhou.aliyuncs.com/<namespace>/tech-evaluation-web-skill:latest
 ```
 

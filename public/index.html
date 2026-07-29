@@ -55,6 +55,24 @@
             </label>
           </div>
 
+          <fieldset class="mode-selector">
+            <legend>报告类型</legend>
+            <label>
+              <input type="radio" name="reportType" value="evaluation" checked />
+              <span>
+                <strong>五维评估报告</strong>
+                <small>快速评分、亮点、风险和建议</small>
+              </span>
+            </label>
+            <label>
+              <input type="radio" name="reportType" value="research" />
+              <span>
+                <strong>项目/行业调研报告</strong>
+                <small>行业研究、竞品、政策、产业链与正式报告版式</small>
+              </span>
+            </label>
+          </fieldset>
+
           <label>
             项目文字资料
             <textarea
@@ -89,9 +107,12 @@
             <p class="eyebrow">Evaluation Report</p>
             <h2 id="projectTitle"></h2>
           </div>
-          <div class="score-card">
-            <span id="overallScore">--</span>
-            <small id="grade">--</small>
+          <div class="result-actions">
+            <button id="printButton" class="secondary-button" type="button">导出 PDF</button>
+            <div class="score-card">
+              <span id="overallScore">--</span>
+              <small id="grade">--</small>
+            </div>
           </div>
         </div>
 

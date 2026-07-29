@@ -4,6 +4,7 @@ const statusBox = document.querySelector("#status");
 const resultBox = document.querySelector("#result");
 const fileInput = document.querySelector('input[name="projectFile"]');
 const fileHint = document.querySelector("#fileHint");
+const printButton = document.querySelector("#printButton");
 
 const dimensionNames = {
   innovation: "技术创新性",
@@ -15,7 +16,8 @@ const dimensionNames = {
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  setStatus("正在解析材料并生成评估报告，请稍候...", "loading");
+  const reportType = new FormData(form).get("reportType");
+  setStatus(reportType === "research" ? "正在联网补齐信息并生成调研报告，请稍候..." : "正在解析材料并生成评估报告，请稍候...", "loading");
   submitButton.disabled = true;
   resultBox.hidden = true;
 
@@ -31,13 +33,21 @@ form.addEventListener("submit", async (event) => {
       throw new Error(payload.message || "生成评估报告失败。");
     }
 
-    renderReport(payload.report, payload.input);
-    setStatus(payload.input?.warning || "评估报告已生成。", payload.input?.warning ? "warning" : "success");
+    if (payload.reportType === "research" || payload.report?.report_type === "project_research_report") {
+      renderResearchReport(payload.report, payload.input);
+    } else {
+      renderReport(payload.report, payload.input);
+    }
+    setStatus(payload.input?.warning || "报告已生成。", payload.input?.warning ? "warning" : "success");
   } catch (error) {
     setStatus(error.message, "error");
   } finally {
     submitButton.disabled = false;
   }
+});
+
+printButton.addEventListener("click", () => {
+  window.print();
 });
 
 fileInput.addEventListener("change", () => {
@@ -49,9 +59,12 @@ fileInput.addEventListener("change", () => {
 
 function renderReport(report, input) {
   resultBox.hidden = false;
+  resultBox.classList.remove("research-document");
+  document.querySelector(".result-header .eyebrow").textContent = "Evaluation Report";
   document.querySelector("#projectTitle").textContent = report.project_name || "未命名项目";
   document.querySelector("#overallScore").textContent = formatScore(report.overall_score);
   document.querySelector("#grade").textContent = `评级 ${report.grade || "--"}`;
+  resetColumnHeadings("亮点", "风险", "建议");
 
   document.querySelector("#summary").innerHTML = `
     <div><strong>行业</strong><span>${escapeHtml(report.industry || "未识别")}</span></div>
@@ -85,6 +98,95 @@ function renderReport(report, input) {
   renderList("#risks", report.risks);
   renderList("#recommendations", report.recommendations);
   document.querySelector("#rawJson").textContent = JSON.stringify(report, null, 2);
+}
+
+function renderResearchReport(report, input) {
+  resultBox.hidden = false;
+  resultBox.classList.add("research-document");
+  document.querySelector(".result-header .eyebrow").textContent = "Research Report";
+  document.querySelector("#projectTitle").textContent = report.title || report.project_name || "项目调研报告";
+  document.querySelector("#overallScore").textContent = "REPORT";
+  document.querySelector("#grade").textContent = report.five_dimension_assessment?.grade
+    ? `建议评级 ${report.five_dimension_assessment.grade}`
+    : "调研报告";
+
+  const metrics = Array.isArray(report.key_metrics) ? report.key_metrics : [];
+  document.querySelector("#summary").innerHTML = `
+    <div><strong>项目</strong><span>${escapeHtml(report.project_name || "未识别")}</span></div>
+    <div><strong>行业</strong><span>${escapeHtml(report.industry || "未识别")}</span></div>
+    <div><strong>外部研究</strong><span>${escapeHtml(report.external_research_status || "limited")}</span></div>
+    <div><strong>输入来源</strong><span>${escapeHtml(input?.source || "manual_text")}</span></div>
+    ${metrics
+      .slice(0, 2)
+      .map((item) => `<div><strong>${escapeHtml(item.label || "指标")}</strong><span>${escapeHtml(item.value || "--")}</span></div>`)
+      .join("")}
+  `;
+
+  const summaryItems = Array.isArray(report.executive_summary) ? report.executive_summary : [];
+  const assessment = report.five_dimension_assessment || {};
+  const sections = Array.isArray(report.sections) ? report.sections : [];
+  document.querySelector("#dimensionGrid").innerHTML = `
+    <article class="report-section report-summary">
+      <h3>高管摘要</h3>
+      <ul>${summaryItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+    </article>
+    <article class="report-section">
+      <h3>五维评估</h3>
+      <div class="assessment-grid">
+        ${renderAssessmentItem("技术创新性", assessment.innovation)}
+        ${renderAssessmentItem("实用性", assessment.practicality)}
+        ${renderAssessmentItem("市场前景", assessment.market)}
+        ${renderAssessmentItem("经济效益", assessment.economic)}
+        ${renderAssessmentItem("社会价值", assessment.social)}
+      </div>
+      <p>综合评分：${formatScore(assessment.overall_score)} ｜ 评级：${escapeHtml(assessment.grade || "--")}</p>
+    </article>
+    ${sections
+      .map(
+        (section) => `
+          <article class="report-section">
+            <h3>${escapeHtml(section.heading || "报告章节")}</h3>
+            <p class="section-summary">${escapeHtml(section.summary || "")}</p>
+            <p>${escapeHtml(section.detail || "")}</p>
+            <ul>${(section.bullets || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+            ${section.citations?.length ? `<p class="citations">引用：${section.citations.map(escapeHtml).join("；")}</p>` : ""}
+          </article>
+        `
+      )
+      .join("")}
+  `;
+
+  resetColumnHeadings("关键风险", "行动建议", "待核验信息");
+  renderList("#highlights", report.risks);
+  renderList("#risks", report.recommendations);
+  renderList("#recommendations", report.validation_needs);
+
+  const sources = Array.isArray(report.sources) ? report.sources : [];
+  document.querySelector("#rawJson").textContent = JSON.stringify(
+    {
+      sources,
+      raw_report: report
+    },
+    null,
+    2
+  );
+}
+
+function renderAssessmentItem(label, item = {}) {
+  return `
+    <div>
+      <strong>${label}</strong>
+      <span>${formatScore(item.score)}</span>
+      <small>${escapeHtml(item.rationale || "")}</small>
+    </div>
+  `;
+}
+
+function resetColumnHeadings(first, second, third) {
+  const headings = document.querySelectorAll(".three-columns h3");
+  headings[0].textContent = first;
+  headings[1].textContent = second;
+  headings[2].textContent = third;
 }
 
 function renderList(selector, items = []) {
