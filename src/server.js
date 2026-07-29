@@ -82,6 +82,13 @@ app.post("/api/evaluations", upload.single("projectFile"), async (req, res, next
 });
 
 app.use((error, _req, res, _next) => {
+  console.error("Request failed", {
+    code: error.code,
+    statusCode: error.statusCode || error.status,
+    message: error.message,
+    stack: error.stack
+  });
+
   if (error instanceof multer.MulterError) {
     return res.status(400).json({
       error: error.code,
@@ -92,7 +99,7 @@ app.use((error, _req, res, _next) => {
   const statusCode = error.statusCode || 500;
   res.status(statusCode).json({
     error: error.code || "INTERNAL_SERVER_ERROR",
-    message: statusCode === 500 ? "服务处理失败，请稍后重试或查看服务日志。" : error.message
+    message: error.message || "服务处理失败，请稍后重试或查看服务日志。"
   });
 });
 

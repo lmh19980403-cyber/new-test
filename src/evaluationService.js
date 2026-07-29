@@ -49,18 +49,62 @@ export async function createEvaluationReport({ projectText, projectName = "", co
     weightPresets: assets.weightPresets
   });
 
-  const completion = await client.chat.completions.create({
+  const completion = await createChatCompletionWithFallback(client, {
     model: process.env.MODEL_NAME || "qwen-max",
     temperature: Number(process.env.MODEL_TEMPERATURE || 0.3),
     messages: [
       { role: "system", content: assets.systemPrompt },
       { role: "user", content: userPrompt }
-    ],
-    response_format: { type: "json_object" }
+    ]
   });
 
   const content = completion.choices?.[0]?.message?.content || "";
   return parseModelJson(content);
+}
+
+async function createChatCompletionWithFallback(client, payload) {
+  if (process.env.MODEL_RESPONSE_FORMAT === "none") {
+    return client.chat.completions.create(payload);
+  }
+
+  try {
+    return await client.chat.completions.create({
+      ...payload,
+      response_format: { type: "json_object" }
+    });
+  } catch (error) {
+    if (!isResponseFormatError(error)) {
+      throw normalizeModelError(error);
+    }
+
+    console.warn("Model endpoint rejected response_format; retrying without it.");
+    try {
+      return await client.chat.completions.create(payload);
+    } catch (retryError) {
+      throw normalizeModelError(retryError);
+    }
+  }
+}
+
+function isResponseFormatError(error) {
+  const message = getModelErrorMessage(error).toLowerCase();
+  return message.includes("response_format") || message.includes("json_object");
+}
+
+function normalizeModelError(error) {
+  const normalized = new Error(`模型调用失败：${getModelErrorMessage(error)}`);
+  normalized.statusCode = error.status || error.statusCode || 502;
+  normalized.code = error.code || "MODEL_REQUEST_FAILED";
+  return normalized;
+}
+
+function getModelErrorMessage(error) {
+  return (
+    error?.error?.message ||
+    error?.response?.data?.message ||
+    error?.message ||
+    "未知模型服务错误"
+  );
 }
 
 export function buildUserPrompt({ projectText, projectName = "", contact = "", weightPresets }) {
