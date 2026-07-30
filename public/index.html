@@ -3,123 +3,431 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>科技成果五维评估系统</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <meta
+      name="description"
+      content="阿里云云计算与大模型技术知识体系，覆盖云基础架构、Transformer、RAG、微调、Agent、AI工程与生产部署。"
+    />
+    <title>阿里云云计算与大模型技术知识体系</title>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="page">
+    <div class="progress" aria-hidden="true"><span id="readProgress"></span></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回顶部">
+        <span class="brand-mark">AI</span>
+        <span>Alibaba Cloud Knowledge Map</span>
+      </a>
+      <nav class="top-nav" aria-label="页面导航">
+        <a href="#cloud">云架构</a>
+        <a href="#llm">大模型</a>
+        <a href="#rag">RAG</a>
+        <a href="#engineering">AI工程</a>
+        <a href="#production">生产部署</a>
+      </nav>
+    </header>
+
+    <main id="top">
       <section class="hero">
-        <div>
-          <div class="brand">
-            <span class="brand-mark">5D</span>
-            <p class="eyebrow">Tech Evaluation Skill</p>
-          </div>
-          <h1>科技成果五维评估系统</h1>
-          <p class="subtitle">
-            上传项目路演 PPTX 或粘贴文字资料，自动生成技术创新性、实用性、市场前景、经济效益、社会价值五维评估报告。
+        <div class="hero-copy">
+          <p class="eyebrow">Cloud Computing · Large Language Model · AI Engineering</p>
+          <h1>阿里云云计算与大模型技术知识体系</h1>
+          <p class="hero-text">
+            围绕阿里云云计算与大模型相关技术体系，系统整理云基础架构、Transformer 原理、模型应用开发、
+            RAG 检索增强、模型微调、Agent、多模态、AI 工程框架与生产环境部署能力。
           </p>
           <div class="hero-actions">
-            <a href="#evaluationForm">开始评估</a>
-            <span>支持千问 / DashScope 结构化输出</span>
+            <a class="button primary" href="#overview">查看知识地图</a>
+            <a class="button secondary" href="#qa">查看关键问答</a>
           </div>
         </div>
-        <div class="hero-card">
-          <div class="hero-card-icon">AI</div>
-          <strong>支持材料</strong>
-          <span>PPTX / TXT / Markdown / 纯文字</span>
+        <aside class="hero-panel">
+          <p class="panel-title">技术链路</p>
           <ol>
-            <li>上传材料</li>
-            <li>抽取关键信息</li>
-            <li>生成五维报告</li>
+            <li>云基础设施提供稳定运行环境</li>
+            <li>Transformer 构成大模型架构基础</li>
+            <li>RAG、微调、Agent 进入业务流程</li>
+            <li>PAI 与百炼完成训练、部署和应用构建</li>
           </ol>
+        </aside>
+      </section>
+
+      <section id="overview" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Overview</p>
+          <h2>整体知识地图</h2>
+          <p>
+            这套体系从底层云资源开始，向上连接 AI 算力、模型训练、模型服务、企业知识库和智能体应用，
+            目标是理解大模型如何从技术原理转化为可交付的企业级解决方案。
+          </p>
+        </div>
+        <div class="map-grid">
+          <article>
+            <span>01</span>
+            <h3>云计算基础架构</h3>
+            <p>ECS、VPC、SLB、OSS、RDS、Redis、CDN、SLS，构成稳定、安全、弹性的云上底座。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>大模型基础原理</h3>
+            <p>理解 Transformer、Self-Attention、Q/K/V、多头注意力、位置编码和 Decoder-only。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>应用开发与调用</h3>
+            <p>掌握通义千问、百炼、DashScope API、OpenAI 兼容模式、Prompt 和 Token 管理。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <h3>RAG 与知识库</h3>
+            <p>覆盖文档解析、Chunk、Embedding、向量检索、Rerank、多路召回和 RAGAS 评估。</p>
+          </article>
+          <article>
+            <span>05</span>
+            <h3>微调与模型优化</h3>
+            <p>区分 RAG 与微调，理解全参数微调、LoRA、数据清洗、样本标注和效果评估。</p>
+          </article>
+          <article>
+            <span>06</span>
+            <h3>Agent 与多模态</h3>
+            <p>理解 Planner、Executor、Tool Use、Memory、Reflection，以及文档、图片、表格和语音理解。</p>
+          </article>
+          <article>
+            <span>07</span>
+            <h3>AI 工程基础</h3>
+            <p>理解 TensorFlow、PyTorch、DeepSpeed、Megatron-LM 与大模型分布式训练。</p>
+          </article>
+          <article>
+            <span>08</span>
+            <h3>生产环境部署</h3>
+            <p>结合灵骏、PAI-DLC、PAI-Blade、PAI-EAS、ACK、FC、vLLM 完成模型服务化。</p>
+          </article>
         </div>
       </section>
 
-      <section class="panel">
-        <div class="panel-heading">
-          <div>
-            <p class="eyebrow">Project Material</p>
-            <h2>提交项目资料</h2>
-          </div>
-          <span>文件不会落盘保存，仅用于本次解析</span>
+      <section id="cloud" class="section split">
+        <div class="sticky-title">
+          <p class="eyebrow">01 Cloud Infrastructure</p>
+          <h2>云计算基础架构</h2>
+          <p>云计算的核心不是把服务器搬到云上，而是构建高可用、可扩展、安全隔离、可观测和成本可控的业务基础设施。</p>
         </div>
-        <form id="evaluationForm">
-          <div class="grid">
-            <label>
-              项目名称（可选）
-              <input name="projectName" placeholder="例如：钙钛矿太阳能电池产业化项目" />
-            </label>
-            <label>
-              提交人/联系方式（可选）
-              <input name="contact" placeholder="例如：张三 / zhang@example.com" />
-            </label>
-          </div>
-
-          <label>
-            项目文字资料
-            <textarea
-              name="projectText"
-              rows="10"
-              placeholder="可粘贴项目 BP、路演稿、技术说明、市场与融资信息等。若上传 PPTX，此处可补充说明。"
-            ></textarea>
-          </label>
-
-          <label class="file-drop">
-            <input class="file-input" name="projectFile" type="file" accept=".pptx,.ppt,.txt,.md" />
-            <span class="file-icon">↑</span>
-            <span class="file-content">
-              <span class="file-title">上传项目 PPTX/TXT/MD 文件</span>
-              <small id="fileHint">点击选择文件，或把项目资料拖到这里。二进制 .ppt 请先另存为 .pptx。</small>
-            </span>
-            <span class="file-button">选择文件</span>
-          </label>
-
-          <div class="form-footer">
-            <small>建议材料包含：技术亮点、TRL、专利、客户验证、市场空间、商业模式、融资计划。</small>
-            <button id="submitButton" type="submit">生成评估报告</button>
-          </div>
-        </form>
+        <div class="content-stack">
+          <article class="card">
+            <h3>核心产品理解</h3>
+            <div class="term-grid">
+              <div><strong>ECS</strong><span>部署业务应用、后端接口、AI 应用服务和轻量推理服务。</span></div>
+              <div><strong>VPC</strong><span>构建私有网络，配合交换机、路由表和安全组实现网络隔离。</span></div>
+              <div><strong>SLB / ALB</strong><span>流量分发、健康检查、故障摘除，支撑高可用入口层。</span></div>
+              <div><strong>OSS</strong><span>存储文档、图片、日志、训练数据、知识库文件等非结构化数据。</span></div>
+              <div><strong>RDS</strong><span>承载结构化业务数据，关注主备、备份、慢 SQL 和高可用。</span></div>
+              <div><strong>Redis</strong><span>缓存热点数据、会话、限流信息，降低数据库压力。</span></div>
+              <div><strong>CDN</strong><span>加速静态资源分发，降低源站压力，改善跨地域访问体验。</span></div>
+              <div><strong>SLS / 云监控</strong><span>采集日志、指标和告警，支撑生产环境可观测性。</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>架构设计关注点</h3>
+            <ul class="check-list">
+              <li><strong>高可用：</strong>多实例、多可用区、负载均衡、健康检查和故障切换。</li>
+              <li><strong>弹性伸缩：</strong>根据 QPS、CPU、内存、GPU 或队列长度自动扩缩容。</li>
+              <li><strong>安全隔离：</strong>使用 VPC、安全组、RAM 最小权限、数据加密和访问审计。</li>
+              <li><strong>可观测性：</strong>通过日志、指标、链路追踪和告警定位性能瓶颈与异常。</li>
+              <li><strong>成本优化：</strong>结合按量、包年包月、Serverless、缓存和资源释放策略控制成本。</li>
+            </ul>
+          </article>
+        </div>
       </section>
 
-      <section id="status" class="status" hidden></section>
-
-      <section id="result" class="result" hidden>
-        <div class="result-header">
-          <div>
-            <p class="eyebrow">Evaluation Report</p>
-            <h2 id="projectTitle"></h2>
-          </div>
-          <div class="score-card">
-            <span id="overallScore">--</span>
-            <small id="grade">--</small>
-          </div>
+      <section id="llm" class="section split">
+        <div class="sticky-title">
+          <p class="eyebrow">02 LLM Foundation</p>
+          <h2>大模型基础原理与应用开发</h2>
+          <p>从 Transformer 到通义千问，再到 API 调用和 Token 管理，理解大模型应用不只是调用接口，而是一套完整工程链路。</p>
         </div>
-
-        <div id="summary" class="summary"></div>
-        <div id="dimensionGrid" class="dimension-grid"></div>
-
-        <div class="three-columns">
-          <article>
-            <h3>亮点</h3>
-            <ul id="highlights"></ul>
+        <div class="content-stack">
+          <article class="card">
+            <h3>Transformer 为什么成为大模型基础</h3>
+            <p>
+              RNN 必须按顺序逐词处理文本，难以并行，也容易在长文本中丢失前文信息。Transformer 使用
+              Self-Attention 让任意 Token 之间可以直接建立关联，同时更适合 GPU 并行训练，因此支撑了大模型规模化。
+            </p>
+            <div class="concept-row">
+              <div><strong>Q</strong><span>Query：我想找什么</span></div>
+              <div><strong>K</strong><span>Key：我如何被匹配</span></div>
+              <div><strong>V</strong><span>Value：我提供什么信息</span></div>
+            </div>
           </article>
-          <article>
-            <h3>风险</h3>
-            <ul id="risks"></ul>
+          <article class="card">
+            <h3>关键机制</h3>
+            <div class="mini-cards">
+              <div>
+                <h4>Self-Attention</h4>
+                <p>计算词与词之间相关性，用注意力权重融合上下文信息。</p>
+              </div>
+              <div>
+                <h4>Multi-Head Attention</h4>
+                <p>多个注意力头从语法、指代、语义、逻辑等不同角度观察文本。</p>
+              </div>
+              <div>
+                <h4>位置编码</h4>
+                <p>为模型注入词序信息，解决注意力机制本身不感知顺序的问题。</p>
+              </div>
+              <div>
+                <h4>FFN</h4>
+                <p>对信息做非线性加工，增强表达能力，并承载大量语言模式和事实知识。</p>
+              </div>
+            </div>
           </article>
-          <article>
-            <h3>建议</h3>
-            <ul id="recommendations"></ul>
+          <article class="card">
+            <h3>Decoder-only 与通义千问</h3>
+            <p>
+              现代生成式大模型多采用 Decoder-only 架构，通过预测下一个 Token 进行自监督训练。它可以把问答、写作、
+              翻译、代码和推理统一成“续写”任务，并利用海量无标注文本实现规模化训练。
+            </p>
+            <ul class="tag-list">
+              <li>RoPE / YaRN 长上下文位置编码</li>
+              <li>GQA 降低 KV Cache 压力</li>
+              <li>SwiGLU 增强 FFN 表达能力</li>
+              <li>RMSNorm 提升计算效率</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>应用开发要点</h3>
+            <div class="term-grid compact">
+              <div><strong>system</strong><span>设定模型角色、边界和输出规范。</span></div>
+              <div><strong>user</strong><span>用户输入的问题或任务。</span></div>
+              <div><strong>assistant</strong><span>模型历史回复，用于多轮对话延续。</span></div>
+              <div><strong>temperature</strong><span>控制随机性，低值更稳定，高值更发散。</span></div>
+              <div><strong>top_p</strong><span>控制候选词采样范围。</span></div>
+              <div><strong>max_tokens</strong><span>限制输出长度，影响成本和响应时间。</span></div>
+            </div>
+            <p class="note">
+              大模型本身是无状态的，多轮对话依赖开发者持续传入历史 messages。Token 管理需要覆盖输入、输出、
+              历史对话、Prompt 模板和 RAG 上下文。
+            </p>
           </article>
         </div>
+      </section>
 
-        <details>
-          <summary>查看原始 JSON</summary>
-          <pre id="rawJson"></pre>
-        </details>
+      <section id="rag" class="section split">
+        <div class="sticky-title">
+          <p class="eyebrow">03 RAG & Knowledge Base</p>
+          <h2>RAG 检索增强与企业知识库</h2>
+          <p>RAG 通过“外部知识检索 + 大模型生成”降低幻觉、补充企业私有知识，并让答案具备可追溯依据。</p>
+        </div>
+        <div class="content-stack">
+          <article class="card">
+            <h3>标准流程</h3>
+            <ol class="timeline">
+              <li><strong>文档加载</strong><span>PDF、Word、Excel、PPT、网页、图片、OSS 文件、企业知识库。</span></li>
+              <li><strong>文档解析</strong><span>普通文本、OCR、文档智能解析、大模型文档解析。</span></li>
+              <li><strong>文本切片</strong><span>按固定长度、语义边界或标题层级切分，并设置 overlap。</span></li>
+              <li><strong>Embedding</strong><span>将文本转为向量，使语义相似内容在向量空间中距离更近。</span></li>
+              <li><strong>向量检索</strong><span>将用户问题向量化后召回相关知识片段。</span></li>
+              <li><strong>Rerank</strong><span>对候选片段精排，提高最终进入上下文的信息质量。</span></li>
+              <li><strong>答案生成</strong><span>结合问题、上下文和 Prompt 生成基于事实的回答。</span></li>
+            </ol>
+          </article>
+          <article class="card">
+            <h3>优化方法</h3>
+            <div class="mini-cards">
+              <div><h4>多路召回</h4><p>融合向量检索、关键词检索、全文检索和元数据过滤。</p></div>
+              <div><h4>Hybrid Search</h4><p>兼顾语义相似和精确匹配，适合专业术语、法规编号、产品型号。</p></div>
+              <div><h4>查询重写</h4><p>将用户模糊问题改写为更适合检索的查询表达。</p></div>
+              <div><h4>上下文压缩</h4><p>筛掉无关内容，减少 Token 消耗并降低噪声。</p></div>
+              <div><h4>递归检索</h4><p>先定位片段，再向上扩展章节或向下补全细节。</p></div>
+              <div><h4>句子窗口</h4><p>保留命中句子前后语义窗口，避免回答只基于孤立片段。</p></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>评估指标</h3>
+            <div class="metric-grid">
+              <div><strong>Faithfulness</strong><span>答案是否忠实于检索内容。</span></div>
+              <div><strong>Answer Relevancy</strong><span>答案是否真正回应用户问题。</span></div>
+              <div><strong>Context Precision</strong><span>召回内容中有效信息占比。</span></div>
+              <div><strong>Context Recall</strong><span>关键证据是否被完整召回。</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="finetune-agent" class="section two-columns">
+        <article class="card">
+          <p class="eyebrow">04 Fine-tuning</p>
+          <h2>模型微调与优化</h2>
+          <p>
+            微调适合解决模型行为问题，例如固定格式输出、行业语言风格、文本分类、意图识别和结构化信息抽取。
+            RAG 更适合解决知识更新、私有知识问答和答案溯源问题。
+          </p>
+          <div class="compare">
+            <div>
+              <h3>优先选择 RAG</h3>
+              <p>企业知识库、政策法规、产品手册、客服知识、内部文档问答。</p>
+            </div>
+            <div>
+              <h3>考虑模型微调</h3>
+              <p>固定格式、行业话术、特定风格、分类识别、稳定任务表现。</p>
+            </div>
+          </div>
+          <ul class="check-list">
+            <li><strong>全参数微调：</strong>效果上限高，但算力、数据和训练复杂度更高。</li>
+            <li><strong>LoRA：</strong>只训练少量低秩适配参数，成本更低，适合企业快速验证。</li>
+            <li><strong>数据质量：</strong>样本准确、格式统一、标注规范和场景覆盖比训练技巧更关键。</li>
+          </ul>
+        </article>
+        <article class="card">
+          <p class="eyebrow">05 Agent & Multimodal</p>
+          <h2>Agent 与多模态应用</h2>
+          <p>
+            Agent 让大模型从“回答问题”升级为“完成任务”，通过规划、工具调用、记忆和结果检查参与复杂业务流程。
+          </p>
+          <div class="term-grid compact">
+            <div><strong>Planner</strong><span>理解目标并拆解任务。</span></div>
+            <div><strong>Executor</strong><span>执行具体步骤。</span></div>
+            <div><strong>Tool Use</strong><span>调用搜索、数据库、API、知识库等工具。</span></div>
+            <div><strong>Memory</strong><span>保存历史上下文、用户偏好和任务状态。</span></div>
+            <div><strong>Reflection</strong><span>检查结果并进行修正。</span></div>
+            <div><strong>Multimodal</strong><span>处理文档、图片、表格和语音。</span></div>
+          </div>
+          <p class="note">
+            多 Agent 协作的关键不是数量越多越好，而是角色边界清晰、任务可拆解、结果可合并、成本可控制。
+          </p>
+        </article>
+      </section>
+
+      <section id="engineering" class="section split">
+        <div class="sticky-title">
+          <p class="eyebrow">06 AI Engineering</p>
+          <h2>AI 工程基础与分布式训练</h2>
+          <p>深度学习框架负责模型构建、自动求梯度、调用 GPU，并连接分布式训练、推理加速和生产部署工具链。</p>
+        </div>
+        <div class="content-stack">
+          <article class="card">
+            <h3>TensorFlow 与 PyTorch</h3>
+            <div class="compare">
+              <div>
+                <h4>TensorFlow</h4>
+                <p>Google 开源框架，工程部署生态成熟，适合已有 TensorFlow 技术栈和工业化部署场景。</p>
+              </div>
+              <div>
+                <h4>PyTorch</h4>
+                <p>Meta 开源框架，动态计算图、调试友好，是当前研究开发和大模型训练的主流选择。</p>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>大模型训练加速框架</h3>
+            <div class="mini-cards">
+              <div>
+                <h4>DeepSpeed</h4>
+                <p>通过 ZeRO、混合精度和显存优化，降低超大模型训练时单张 GPU 的显存压力。</p>
+              </div>
+              <div>
+                <h4>Megatron-LM</h4>
+                <p>通过张量并行、流水线并行和数据并行，把模型结构切分到多张 GPU 协同训练。</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="production" class="section split">
+        <div class="sticky-title">
+          <p class="eyebrow">07 Production & Alibaba Cloud AI Stack</p>
+          <h2>生产环境部署与阿里云 AI 技术栈</h2>
+          <p>大模型应用从 Demo 到生产，需要解决稳定性、并发、成本、安全、监控和运维问题。</p>
+        </div>
+        <div class="content-stack">
+          <article class="card">
+            <h3>阿里云 AI 四层链路</h3>
+            <div class="layer-list">
+              <div><span>基础资源层</span><strong>灵骏智算服务、GPU 集群、RDMA 高速网络</strong></div>
+              <div><span>平台工具层</span><strong>PAI-DLC、PAI-Blade、PAI-EasyDistill</strong></div>
+              <div><span>模型服务层</span><strong>通义千问、PAI-EAS、模型在线推理服务</strong></div>
+              <div><span>业务应用层</span><strong>百炼平台、RAG 知识库、Agent、企业 AI 应用</strong></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>关键产品能力</h3>
+            <div class="term-grid">
+              <div><strong>灵骏</strong><span>提供大规模 GPU 算力、高速网络和托管运维，降低自建智算集群门槛。</span></div>
+              <div><strong>PAI-DLC</strong><span>支持 PyTorch、TensorFlow、DeepSpeed、Megatron 的分布式训练任务。</span></div>
+              <div><strong>PAI-Blade</strong><span>通过算子融合、量化、剪枝和图优化提升推理速度、降低资源消耗。</span></div>
+              <div><strong>PAI-EAS</strong><span>将模型部署为在线 API，支持弹性扩缩容、多版本、灰度和监控。</span></div>
+              <div><strong>百炼</strong><span>整合通义千问、RAG、Agent、工具调用和应用编排能力。</span></div>
+              <div><strong>ACK / FC / vLLM</strong><span>支撑容器化、Serverless 和高吞吐推理等不同部署形态。</span></div>
+            </div>
+          </article>
+          <article class="card">
+            <h3>生产化关注点</h3>
+            <ul class="check-list">
+              <li><strong>高可用：</strong>多实例、负载均衡、健康检查、故障自动切换。</li>
+              <li><strong>扩缩容：</strong>根据 QPS、GPU、队列长度和响应延迟动态调整资源。</li>
+              <li><strong>安全合规：</strong>RAM 最小权限、API Key 管理、数据加密、脱敏和内容安全检测。</li>
+              <li><strong>可观测性：</strong>监控请求量、延迟、错误率、Token 消耗、GPU 利用率和 RAG 命中率。</li>
+              <li><strong>成本优化：</strong>模型选型、Prompt 精简、缓存、上下文压缩、推理加速和弹性资源。</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="qa" class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Key Questions</p>
+          <h2>关键技术问答</h2>
+          <p>将核心概念整理成问题形式，便于快速定位知识点，也适合在页面中作为技术复习区。</p>
+        </div>
+        <div class="qa-list">
+          <details open>
+            <summary>Transformer 为什么比 RNN 更适合大模型？</summary>
+            <p>
+              Transformer 可以通过 Self-Attention 并行计算所有 Token，不需要像 RNN 一样逐词串行处理；
+              同时任意两个 Token 可以直接建立注意力连接，缓解长文本中的信息衰减问题。
+            </p>
+          </details>
+          <details>
+            <summary>Q、K、V 分别代表什么？</summary>
+            <p>
+              Q 表示查询意图，K 表示可匹配特征，V 表示实际信息内容。注意力机制用 Q 匹配 K，
+              得到权重后对 V 加权求和，从而融合上下文信息。
+            </p>
+          </details>
+          <details>
+            <summary>为什么现代生成式大模型多采用 Decoder-only？</summary>
+            <p>
+              Decoder-only 通过预测下一个 Token 训练，可以把问答、写作、代码、翻译和推理统一成续写任务；
+              同时适合海量无标注文本自监督训练，规模扩大后更容易涌现复杂能力。
+            </p>
+          </details>
+          <details>
+            <summary>RAG 和微调如何选型？</summary>
+            <p>
+              如果问题是企业知识更新、私有知识问答和答案溯源，优先选择 RAG；如果问题是固定格式、行业话术、
+              任务风格和输出稳定性，可以考虑微调。复杂场景可以采用 RAG + 微调组合方案。
+            </p>
+          </details>
+          <details>
+            <summary>阿里云 AI 技术栈如何从底层到应用串起来？</summary>
+            <p>
+              底层由灵骏等 GPU 算力提供训练和推理资源；PAI-DLC 管理分布式训练；PAI-Blade 做推理优化；
+              PAI-EAS 部署在线模型服务；通义千问提供模型能力；百炼平台将模型封装为 RAG、Agent 和企业 AI 应用。
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section class="section final-summary">
+        <p class="eyebrow">Summary</p>
+        <h2>从云基础设施到企业级 AI 应用</h2>
+        <p>
+          这套知识体系将云计算、大模型原理、AI 工程框架和企业应用落地串联起来：云计算解决系统稳定运行问题；
+          Transformer 解释模型理解与生成能力的来源；TensorFlow、PyTorch、DeepSpeed、Megatron 解释模型训练工程；
+          通义千问、PAI 和百炼提供阿里云模型与平台能力；RAG、微调、Agent、多模态让大模型进入企业业务流程；
+          生产部署、安全合规、监控和成本优化决定 AI 应用能否长期稳定运行。
+        </p>
+        <button id="copyChain" type="button">复制技术链路摘要</button>
       </section>
     </main>
 
-    <script src="/app.js" type="module"></script>
+    <script src="app.js" type="module"></script>
   </body>
 </html>
