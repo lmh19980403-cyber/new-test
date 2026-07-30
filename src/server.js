@@ -104,6 +104,7 @@ app.use((error, _req, res, _next) => {
 });
 
 const port = Number(process.env.PORT || 3000);
-app.listen(port, () => {
-  console.log(`Tech evaluation skill is running at http://localhost:${port}`);
+const host = process.env.HOST || "0.0.0.0";
+app.listen(port, host, () => {
+  console.log(`Aliyun knowledge page is running at http://${host}:${port}`);
 });
