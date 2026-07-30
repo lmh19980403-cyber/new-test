@@ -8,6 +8,7 @@
    - 支持上传 `.pptx`，服务端会抽取幻灯片与备注页文字。
    - 抽取后的内容会进入“五维评估”提示词，由千问/DashScope 兼容接口生成结构化 JSON 报告。
    - 二进制 `.ppt` 暂不直接解析，请先另存为 `.pptx`。
+   - 可切换“项目/行业调研报告”模式，生成更完整的正式报告版式；模型侧开通搜索权限后可启用联网补齐信息。
 
 2. **前端网站供其他用户通过网址访问**
    - Express 后端同时托管静态前端页面。
@@ -58,6 +59,8 @@ cp .env.example .env
 DASHSCOPE_API_KEY=sk-your-dashscope-api-key
 MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
 MODEL_NAME=qwen-max
+MODEL_ENABLE_SEARCH=false
+MODEL_RESPONSE_FORMAT=none
 PORT=3000
 ```
 
@@ -131,6 +134,8 @@ curl -X POST http://localhost:3000/api/evaluations \
      - `DASHSCOPE_API_KEY`
      - `MODEL_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1`
      - `MODEL_NAME=qwen-max`
+     - `MODEL_ENABLE_SEARCH=false`（模型侧开通联网搜索权限后可改为 `true`）
+     - `MODEL_RESPONSE_FORMAT=none`
      - `MAX_UPLOAD_BYTES=20971520`
 4. 绑定公网访问域名或自定义域名。
 

@@ -3,7 +3,7 @@ import express from "express";
 import multer from "multer";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { createEvaluationReport, loadEvaluationAssets } from "./evaluationService.js";
+import { createEvaluationReport, createProjectResearchReport, loadEvaluationAssets } from "./evaluationService.js";
 import { extractTextFromUpload, isSupportedFile, normalizeWhitespace } from "./fileExtractors.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -62,7 +62,9 @@ app.post("/api/evaluations", upload.single("projectFile"), async (req, res, next
       });
     }
 
-    const report = await createEvaluationReport({
+    const reportType = normalizeWhitespace(req.body.reportType || "evaluation");
+    const createReport = reportType === "research" ? createProjectResearchReport : createEvaluationReport;
+    const report = await createReport({
       projectText,
       projectName: normalizeWhitespace(req.body.projectName || ""),
       contact: normalizeWhitespace(req.body.contact || "")
@@ -70,6 +72,7 @@ app.post("/api/evaluations", upload.single("projectFile"), async (req, res, next
 
     res.json({
       report,
+      reportType,
       input: {
         source: extracted.source || "manual_text",
         warning: extracted.warning,
